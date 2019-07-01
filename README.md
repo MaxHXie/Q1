@@ -21,3 +21,10 @@ When done, use (`deactivate`) to exit virtual env
 3. run (`pip freexe --local > requirements.txt`)
 
 ## Run Project Instructions:
+
+### In development
+#### If needed:
+1. Migrations (`python3 manage.py makemigrations`)
+2. Migrate (`python3 manage.py migrate`)
+#### Run server:
+3. Run Server (`python3 manage.py runserver`)
