@@ -9,7 +9,7 @@ venv module for python3 (`apt-get install python3-venv`)
 
 ### Installation and activation
 1. Create virtual env (`python3 -m venv env`) *Only do this the first time*
-2. Avtivate environment (`source env/bin/activate`)
+2. Activate environment (`source env/bin/activate`)
 3. Install requirements (`pip install -r requirements.txt`)
 
 When done, use (`deactivate`) to exit virtual env
