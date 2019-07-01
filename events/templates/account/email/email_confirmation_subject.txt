@@ -1,0 +1,4 @@
+{% load i18n %}
+{% autoescape off %}
+{% blocktrans %}- Var god och verifiera din email adress{% endblocktrans %}
+{% endautoescape %}

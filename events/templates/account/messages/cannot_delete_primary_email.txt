@@ -1,0 +1,2 @@
+{% load i18n %}
+{% blocktrans %} Du kan inte radera din primära email ({{email}}). {% endblocktrans %}

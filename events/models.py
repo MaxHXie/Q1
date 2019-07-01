@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
-from artist.models import Artist, Genre
-
+from users.models import Artist, Genre
+from django.contrib.auth.models import User
 # Create your models here.
 
 class Event(models.Model):
@@ -14,21 +14,21 @@ class Event(models.Model):
         on_delete = models.CASCADE
     )
 
-    name = models.CharField()
+    name = models.CharField(max_length=128)
     datetime = models.DateTimeField()
-    city = models.CharField()
-    city_district = models.CharField()
-    address = models.CharField()
-    location_name = models.CharField()
-    price = models.PositiveIntegerField()
-    description = models.TextField()
-    is_active = models.BooleanField()
-    is_confirmed = models.BooleanField()
-    is_hidden = models.BooleanField()
-    red = models.PositiveIntegerField()
-    green = models.PositiveIntegerField()
-    blue = models.PositiveIntegerField()
-    time_created = models.DataTimeField()
+    city = models.CharField(max_length=64)
+    city_district = models.CharField(max_length=64)
+    address = models.CharField(max_length=64)
+    location_name = models.CharField(max_length=64)
+    price = models.PositiveIntegerField(default=0)
+    description = models.TextField(max_length=2048)
+    is_active = models.BooleanField(default=False)
+    is_confirmed = models.BooleanField(default=False)
+    is_hidden = models.BooleanField(default=False)
+    red = models.PositiveIntegerField(default=255)
+    green = models.PositiveIntegerField(default=255)
+    blue = models.PositiveIntegerField(default=255)
+    time_created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return "%s by %s %s" % (self.name, self.artist.first_name, self.artist.last_name)

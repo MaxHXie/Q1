@@ -1,0 +1,2 @@
+{% load i18n %}
+{% blocktrans %} Du har tagit bort din email: {{email}}.{% endblocktrans %}

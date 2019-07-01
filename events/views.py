@@ -1,8 +1,37 @@
 from django.shortcuts import render
 from django.db.models import Q
+from users.models import Genre
+from .models import Event
 # Create your views here.
 
 colors = [(123,205,47), (119,172,236), (236,219,84), (240,237,229), (252,169,133), (209,255,244)]
+
+def index(request):
+    if request.user.is_authenticated:
+        status = functions.user_status(request)
+        if status == 'not valid':
+            request.method = "GET"
+            message = "There are still missing information about you."
+            return edit_profile(request)
+        elif status == 'not activated':
+            message = "Your account have not been activated."
+            return logout(request)
+
+    genres = Genre.objects.all()
+    event_dict = {}
+    artist_dict = {}
+    if len(genres) == 0:
+        genres = None
+
+    else:
+        for genre in genres:
+            events = Event.objects.filter(genre=genre, is_active=True, is_accepted=True, is_hidden=False)
+            events = [event for event in hobby_events if event.has_happened == False]
+            artists = Artist.objects.filter(genres=genre, valid_profile=True, is_activated=True)
+            event_dict[genre.name] = events
+            artist_dict[genre.name] = artist
+
+    return render(request, 'landing_page.html', context={'genres': genres, 'event_dict': event_dict, 'artist_dict': artist_dict})
 
 def create(request):
     if functions.is_artist(request):
@@ -117,7 +146,7 @@ def single(request, id):
 
     return render(request, 'single_page.html', context={'event': event, 'user': user, 'is_signed_up': is_signed_up})
 
-def all():
+def all(request):
     if request.user.is_authenticated:
         status = functions.user_status(request)
         if status == "not valid":
@@ -174,11 +203,11 @@ def all():
             request.method = "GET"
 
     else:
-        event_list = Event.objects.filter(is_active=True, is_accepted=True, is_hidden=False)
+        event_list = Event.objects.filter(is_active=True, is_confirmed=True, is_hidden=False)
 
     return render(request, 'events_page.html', context={'event_list': event_list, 'search_text': search_text})
 
-def my(request):
+def my_events(request):
     if request.user.is_authenticated:
         status = functions.user_status(request)
         if status == "not valid":

@@ -1,0 +1,56 @@
+{% load static %}
+{% load i18n %}
+<footer class="footer footer-default">
+    <div class="container">
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                    {% if user.instructor %}
+                        <li>
+                            <a href="{% url 'my_profile' %}"><strong>{% trans 'My profile' %}</strong></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'my_events' %}"><strong>{% trans 'My events' %}</strong></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'create_event' %}"><strong>{% trans 'Create event' %}</strong></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'all_events' %}">{% trans 'See all events' %}</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'settings' %}">{% trans 'Account settings' %}</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'logout' %}">{% trans 'Log out' %}</a>
+                        </li>
+                    {% elif user.customer %}
+                        <li>
+                            <a href="{% url 'settings' %}">{% trans 'Account settings' %}</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'logout' %}">{% trans 'Log out' %}</a>
+                        </li>
+                    {% endif %}
+                {% else %}
+                    <li>
+                        <a href="{% url 'account_login' %}"><strong>{% trans 'Log in' %}</strong></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'artist_signup' %}"><strong>{% trans 'Register as an Artist' %}</strong></a>
+                    </li>
+                    <li>
+                        <a href="{% url 'fan_signup' %}"><strong>{% trans 'Register as a Fan' %}</strong></a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+        <div class="copyright">
+            All rights reserved &copy;
+            <script>
+                document.write(new Date().getFullYear())
+            </script>,
+            <a href="{% url 'index' %}">HobbyIn</a>.
+        </div>
+    </div>
+</footer>
