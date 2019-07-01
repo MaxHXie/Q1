@@ -72,7 +72,7 @@ def create(request):
             return render(request, 'create_event.html', context={'form': form})
     else:
         message = "You are not logged in as an artist"
-        return all(request, id)
+        return all_events(request, id)
 
 def confirm(request, id):
     if functions.is_artist(request):
@@ -103,7 +103,7 @@ def confirm(request, id):
             return create_event(request)
     else:
         message = "You are not logged in as an artist"
-        return all(request)
+        return all_events(request)
 
 def single(request, id):
     if request.user.is_authenticated:
@@ -122,18 +122,18 @@ def single(request, id):
         event = Event.objects.get(pk=id)
     except Event.DoesNotExist:
         message = "The event you are looking for no longer exists"
-        return all(request)
+        return all_events(request)
 
     if event.artist.user == user and event.is_confirmed == False:
         return confirm(request, id)
 
     if event.has_happened:
         message = "This event has already passed"
-        return all(request)
+        return all_events(request)
 
     if event.is_hidden:
         message = "This event is no longer visible"
-        return all(request)
+        return all_events(request)
 
     '''
         Check if this user already has signed up for the event or not
@@ -146,7 +146,7 @@ def single(request, id):
 
     return render(request, 'single_page.html', context={'event': event, 'user': user, 'is_signed_up': is_signed_up})
 
-def all(request):
+def all_events(request):
     if request.user.is_authenticated:
         status = functions.user_status(request)
         if status == "not valid":
@@ -317,7 +317,7 @@ def hide_show():
             message = 'You do not have access to this event.'
     else:
         message = 'You are not logged in as an artist.'
-        return all(request)
+        return all_events(request)
 
 def signup(request, id):
     if request.user.is_authenticated:
@@ -325,7 +325,7 @@ def signup(request, id):
             event = Event.objects.get(pk=id)
         except:
             message = 'That event does not exist anymore.'
-            return all(request)
+            return all_events(request)
 
         try:
             Event.objects.get(event=event, user=request.user)

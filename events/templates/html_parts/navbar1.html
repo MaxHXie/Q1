@@ -23,11 +23,11 @@
                             <a class="nav-link" href="{% url 'my_events' %}"><span style="font-size:1.3em;"><strong>My events</strong></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'all' %}"><span style="font-size:1.3em;"><strong>All events</strong></span></a>
+                            <a class="nav-link" href="{% url 'all_events' %}"><span style="font-size:1.3em;"><strong>All events</strong></span></a>
                         </li>
                     {% elif user.fan %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'all' %}"><span style="font-size:1.3em;"><strong>All events</strong></span></a>
+                            <a class="nav-link" href="{% url 'all_events' %}"><span style="font-size:1.3em;"><strong>All events</strong></span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'my_profile' %}"><span style="font-size:1.3em;"><strong>My profile</strong></span></a>
@@ -35,7 +35,7 @@
                     {% endif %}
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'all' %}"><span style="font-size:1.3em;"><strong>All events</strong></span></a>
+                        <a class="nav-link" href="{% url 'all_events' %}"><span style="font-size:1.3em;"><strong>All events</strong></span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}"><span style="font-size:1.3em;"><strong>Log in</strong></span></a>
