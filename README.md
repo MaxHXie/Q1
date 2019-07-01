@@ -2,10 +2,10 @@
 
 ## Virtual Environment Instructions:
 
-Requirements:
-Python3 (`apt-get install python3`)
-pip3 (`apt-get install python3=pip`)
-venv module for python3 (`apt-get install python3-venv`)
+Requirements:  
+Python3 (`apt-get install python3`)  
+pip3 (`apt-get install python3=pip`)  
+venv module for python3 (`apt-get install python3-venv`)  
 
 1. Create virtual env (`python3 -m venv env`)
 2. Avtivate environment (`Source env/bin/activate`)
