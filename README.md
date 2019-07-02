@@ -28,3 +28,7 @@ When done, use (`deactivate`) to exit virtual env
 2. Migrate (`python3 manage.py migrate`)
 #### Run server:
 3. Run Server (`python3 manage.py runserver`)
+
+## Creating Mock Data
+
+Make sure that the `datadump folder` is in the same directory as the `manage.py` and the `makefile`.
