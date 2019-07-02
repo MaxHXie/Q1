@@ -8,21 +8,21 @@
     },
     {
         "model": "users.genre",
-        "pk": 1,
+        "pk": 2,
         "fields": {
             "name": "pop"
         }
     },
     {
         "model": "users.genre",
-        "pk": 1,
+        "pk": 3,
         "fields": {
             "name": "dansband"
         }
     },
     {
         "model": "users.genre",
-        "pk": 1,
+        "pk": 4,
         "fields": {
             "name": "schlager"
         }
