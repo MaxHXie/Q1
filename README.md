@@ -32,3 +32,5 @@ When done, use (`deactivate`) to exit virtual env
 ## Creating Mock Data
 
 Make sure that the `datadump folder` is in the same directory as the `manage.py` and the `makefile`.
+
+1. Just write `make databas` in console.
