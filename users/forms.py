@@ -7,6 +7,7 @@ from allauth.account.forms import SignupForm
 from django.forms import TextInput, Select, Textarea, RadioSelect, CheckboxInput, NumberInput, CheckboxSelectMultiple
 from django.core.files.images import get_image_dimensions
 from django.utils.translation import gettext as _
+import q1.functions as functions
 import re
 
 
@@ -21,14 +22,14 @@ class ArtistSignupForm(SignupForm):
     def save(self, request):
         user = super(ArtistSignupForm, self).save(request)
         user.save()
-        functions.create_artist(user, email=user.email)
+        functions.create_artist(user)
         return user
 
 class FanSignupForm(SignupForm):
     def save(self, request):
         user = super(FanSignupForm, self).save(request)
         user.save()
-        functions.create_fan(user, email=user.email)
+        functions.create_fan(user)
         return user
 
 class ArtistForm(ModelForm):

@@ -1,3 +1,5 @@
+from users.models import Artist, Fan
+
 def is_artist(request):
     if request.user.is_authenticated:
         try:
@@ -17,6 +19,14 @@ def is_fan(request):
             return False
     else:
         return False
+
+def get_authenticated_user(request):
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user = None
+
+    return user
 
 def user_status(request):
     user = request.user
@@ -49,3 +59,13 @@ def user_status(request):
             fan = Fan.objects.get(user=user)
             fan.save()
             return False
+
+def create_artist(user):
+    artist = Artist.objects.create(user=user)
+    artist.save()
+    return artist
+
+def create_fan(user):
+    fan = Fan.objects.create(user=user)
+    fan.save()
+    return fan

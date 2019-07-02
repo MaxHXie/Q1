@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.db.models import Q
 from users.models import Genre
 from .models import Event
+import q1.functions as functions
+from django.contrib import messages
+
 # Create your views here.
 
 colors = [(123,205,47), (119,172,236), (236,219,84), (240,237,229), (252,169,133), (209,255,244)]
@@ -218,8 +221,8 @@ def my_events(request):
             message = "Your account is not activated."
             return logout(request)
 
-    if function.is_artist(request):
-        artists_events = Event.objects.filter(event_host=request.user.instructor).order_by('-datetime')
+    if functions.is_artist(request):
+        artists_events = Event.objects.filter(artist=request.user.artist).order_by('-datetime')
         return render(request, 'my_events_page.html', context={'event_list': artists_events})
     else:
         message = "You are not logged in as an artist"
@@ -236,7 +239,7 @@ def edit(request, id):
             message = "Your account is not activated."
             return logout(request)
 
-    if function.is_artist(request):
+    if functions.is_artist(request):
         try:
             event = Event.objects.get(pk=id)
         except Event.DoesNotExist:
@@ -268,7 +271,7 @@ def edit(request, id):
         return single(request, id)
 
 def participants(request, id):
-    if functions.is_instructor(request):
+    if functions.is_artist(request):
         try:
             event = Event.objects.get(pk=id)
         except:
@@ -283,18 +286,18 @@ def participants(request, id):
             return all_events(request)
 
     else:
-        message = "You are not logged in as an instructor"
+        message = "You are not logged in as an artist"
         return all_events(request)
 
 def hide_show():
-    if functions.is_instructor(request):
+    if functions.is_artist(request):
         try:
             event = Event.objects.get(pk=id)
         except Event.DoesNotExist:
             message = "That event does not exist anymore"
             return all_events(request)
 
-        artists_events = Event.objects.filter(artist=request.user.instructor)
+        artists_events = Event.objects.filter(artist=request.user.artist)
 
         if event in artists_events:
             if request.method == "POST":

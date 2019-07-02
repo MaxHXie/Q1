@@ -15,7 +15,7 @@ class Artist(models.Model):
     name = models.CharField(max_length=64)
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32)
-    genres = models.ForeignKey(Genre, on_delete=models.CASCADE)
+    genres = models.ForeignKey(Genre, on_delete=models.CASCADE, null=True)
     email = models.EmailField(max_length=64)
     telephone = models.CharField(max_length=16)
     city = models.CharField(max_length=64)

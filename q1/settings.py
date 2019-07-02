@@ -44,7 +44,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
+    'djangospam',
 ]
+SITE_ID = 1
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
@@ -138,7 +141,7 @@ ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_USERNAME_REQUIRED = False
-LOGIN_REDIRECT_URL = 'http://localhost:8000/profile'
+LOGIN_REDIRECT_URL = '/user/my_profile'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
