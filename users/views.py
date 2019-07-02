@@ -5,6 +5,8 @@ from django.contrib.auth import logout as logout_function
 import q1.functions as functions
 from django.contrib import messages
 from events.views import index
+from django.contrib.auth.models import User
+from .models import Artist, Fan
 
 # Create your views here.
 class ArtistSignup(SignupView):
@@ -14,7 +16,7 @@ class ArtistSignup(SignupView):
     template_name = 'custom_allauth/signup_artist.html'
     form_class = ArtistSignupForm
     redirect_field_name = 'next'
-    view_name = 'artist_signup'
+    view_name = 'artist_sign_up'
 
     def get_context_data(self, **kwargs):
         ret = super(ArtistSignup, self).get_context_data(**kwargs)
@@ -121,20 +123,20 @@ def profile_id(request, id):
         user = request.user
 
     try:
-        user = User.objects.get(pk=user_id)
-    except:
+        user = User.objects.get(pk=user.id)
+    except User.DoesNotExist:
         messages.error(request, 'This profile no longer exists')
         return render(request, 'profile_page.html')
 
-    if user.is_artist:
+    if functions.is_artist(request):
         profile = Artist.objects.get(user=user)
-    elif user.is_fan:
+    elif functions.is_fan(request):
         profile = Fan.objects.get(user=user)
     else:
         message = 'This profile no longer exists.'
         return render(request, 'profile_page.html')
 
-    if profile.is_active == False:
+    if profile.is_activated == False:
         message = 'This profile is no longer active'
         return render(request, 'profile_page.html')
 
