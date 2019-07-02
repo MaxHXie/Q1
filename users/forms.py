@@ -18,16 +18,16 @@ class CheckboxSelectMultiple(CheckboxSelectMultiple):
         output = output.replace(u'</li>', u'')
         return mark_safe(output.replace(u'<ul id="id_hobbies">', u''))
 
-class ArtistSignupForm(SignupForm):
+class ArtistSignUpForm(SignupForm):
     def save(self, request):
-        user = super(ArtistSignupForm, self).save(request)
+        user = super(ArtistSignUpForm, self).save(request)
         user.save()
         functions.create_artist(user)
         return user
 
-class FanSignupForm(SignupForm):
+class FanSignUpForm(SignupForm):
     def save(self, request):
-        user = super(FanSignupForm, self).save(request)
+        user = super(FanSignUpForm, self).save(request)
         user.save()
         functions.create_fan(user)
         return user
@@ -40,7 +40,7 @@ class ArtistForm(ModelForm):
         widgets = {
             'first_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Förnamn'}),
             'last_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Efternamn'}),
-            'hobbies': RadioSelect(),
+            'genres': RadioSelect(),
             'city': TextInput(attrs={'class': 'form-control', 'placeholder': 'Stad... ex. Stockholm, Göteborg...'}),
             'city_district': TextInput(attrs={'class': 'form-control', 'placeholder': 'Kommun: ex. Sollentuna, Täby...'}),
             'description': Textarea(attrs={'class': 'form-control', 'placeholder': 'Kort biografi om dig själv: Hej...', 'rows':20}),
@@ -54,7 +54,7 @@ class ArtistForm(ModelForm):
                 'required': _('Du måste fylla i ditt efternamn'),
                 'max_length': _('Texten du skrev in här var för långt'),
             },
-            'hobbies': {
+            'genres': {
                 'required': _('Du måste välja en hobby'),
             },
             'city': {
@@ -141,11 +141,6 @@ class ArtistForm(ModelForm):
 
     def clean(self):
         cleaned_data=super(ArtistForm, self).clean()
-
-        work_in_student_home = self.cleaned_data['work_in_student_home']
-        work_in_artist_home = self.cleaned_data['work_in_artist_home']
-        if work_in_artist_home == False and work_in_student_home == False:
-            raise forms.ValidationError({'work_in_student_home':[_("Du måste välja hur du vill lära ut.")]}, code="choose_one")
 
 class FanForm(ModelForm):
     honeypot = forms.CharField(required=False,widget=forms.HiddenInput)

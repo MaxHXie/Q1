@@ -34,12 +34,12 @@ def user_status(request):
         try:
             artist = Artist.objects.get(user=user)
             if artist.valid_profile:
-                if artist.is_active:
+                if artist.is_activated:
                     return 'success'
                 else:
-                    return 'not_active'
+                    return 'not active'
             else:
-                return 'not_valid'
+                return 'not valid'
         except Artist.DoesNotExist:
             artist = Artist.objects.create(user=user)
             artist.save()
@@ -49,12 +49,12 @@ def user_status(request):
         try:
             fan = Fan.objects.get(user=user)
             if fan.valid_profile:
-                if fan.is_active:
+                if fan.is_activated:
                     return 'success'
                 else:
-                    return 'not_active'
+                    return 'not active'
             else:
-                return 'not_valid'
+                return 'not valid'
         except Fan.DoesNotExist:
             fan = Fan.objects.get(user=user)
             fan.save()

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from allauth.account.views import SignupView
-from .forms import ArtistForm, FanForm, ArtistSignupForm, FanSignupForm
+from .forms import ArtistForm, FanForm, ArtistSignUpForm, FanSignUpForm
 from django.contrib.auth import logout as logout_function
 import q1.functions as functions
 from django.contrib import messages
@@ -9,31 +9,31 @@ from django.contrib.auth.models import User
 from .models import Artist, Fan
 
 # Create your views here.
-class ArtistSignup(SignupView):
+class ArtistSignUp(SignupView):
     '''
     Present Signup form for artists
     '''
     template_name = 'custom_allauth/signup_artist.html'
-    form_class = ArtistSignupForm
+    form_class = ArtistSignUpForm
     redirect_field_name = 'next'
     view_name = 'artist_sign_up'
 
     def get_context_data(self, **kwargs):
-        ret = super(ArtistSignup, self).get_context_data(**kwargs)
+        ret = super(ArtistSignUp, self).get_context_data(**kwargs)
         ret.update(self.kwargs)
         return ret
 
-class FanSignup(SignupView):
+class FanSignUp(SignupView):
     '''
     Present signup form for fans
     '''
     template_name = 'custom_allauth/signup_fan.html'
-    form_class = FanSignupForm
+    form_class = FanSignUpForm
     redirect_field_name = 'next'
     view_name = 'fan_sign_up'
 
     def get_context_data(self, **kwargs):
-        ret = super(FanSignup, self).get_context_data(**kwargs)
+        ret = super(FanSignUp, self).get_context_data(**kwargs)
         ret.update(self.kwargs)
         return ret
 
@@ -170,8 +170,9 @@ def edit_profile(request):
             form = form_type(request.POST, request.FILES, instance=form_obj)
             if form.is_valid():
                 form.save()
+                form_obj.valid_profile = True
                 form_obj.save()
-                message.success(request, 'Your profile has been saved')
+                messages.success(request, 'Your profile has been saved')
                 request.method = "GET"
                 return my_profile(request)
             else:
