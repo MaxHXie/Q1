@@ -1,0 +1,74 @@
+[
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$HikUENz1ISDO$cs+7LfjJUqFOQH78WbJs79ua/Th1ZI6fCNGFSu5urxM=",
+        "last_login": "2019-07-02T10:44:01.820Z",
+        "is_superuser": true,
+        "username": "carl",
+        "first_name": "",
+        "last_name": "",
+        "email": "carl.dath@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-07-02T10:27:50.564Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$HikUENz1ISDO$cs+7LfjJUqFOQH78WbJs79ua/Th1ZI6fCNGFSu5urxM=",
+        "last_login": "2019-04-02T10:44:01.820Z",
+        "is_superuser": true,
+        "username": "Svensee",
+        "first_name": "Sven",
+        "last_name": "Svensson",
+        "email": "svennesvenneson@gmail.com",
+        "is_staff": false,
+        "is_active": false,
+        "date_joined": "2019-02-02T10:27:50.564Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$HikUENz1ISDO$cs+7LfjJUqFOQH78WbJs79ua/Th1ZI6fCNGFSu5urxM=",
+        "last_login": "2019-05-02T10:44:01.820Z",
+        "is_superuser": true,
+        "username": "Lassebasse",
+        "first_name": "Lars",
+        "last_name": "Larsson",
+        "email": "Lassebassekingkong@gmail.com",
+        "is_staff": false,
+        "is_active": false,
+        "date_joined": "2019-01-02T10:27:50.564Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$HikUENz1ISDO$cs+7LfjJUqFOQH78WbJs79ua/Th1ZI6fCNGFSu5urxM=",
+        "last_login": "2019-07-02T10:12:01.820Z",
+        "is_superuser": true,
+        "username": "IngvaQueen",
+        "first_name": "Ingva",
+        "last_name": "Ingvedotter",
+        "email": "IngensommarutanIngva@gmail.com",
+        "is_staff": false,
+        "is_active": false,
+        "date_joined": "2019-07-01T10:27:50.564Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]
