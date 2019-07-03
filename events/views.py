@@ -289,7 +289,7 @@ def participants(request, id):
         message = "You are not logged in as an artist"
         return all_events(request)
 
-def hide_show():
+def hide_show(request, id):
     if functions.is_artist(request):
         try:
             event = Event.objects.get(pk=id)
