@@ -6,6 +6,8 @@ class TestUrls(SimpleTestCase):
 
     '''
     Unit test for all paths in urls.py and corresponding view
+
+    Some views require an id which is provided in the reverse function with kwargs
     '''
 
     def test_index_url_resolves(self):

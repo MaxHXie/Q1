@@ -75,7 +75,7 @@ def create(request):
             return render(request, 'create_event.html', context={'form': form})
     else:
         message = "You are not logged in as an artist"
-        return all_events(request, id)
+        return all_events(request)
 
 def confirm(request, id):
     if functions.is_artist(request):
