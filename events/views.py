@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.db.models import Q
 from users.models import Genre
 from .models import Event
+from users.models import Artist
 import q1.functions as functions
 from django.contrib import messages
 
@@ -28,11 +29,11 @@ def index(request):
 
     else:
         for genre in genres:
-            events = Event.objects.filter(genre=genre, is_active=True, is_accepted=True, is_hidden=False)
-            events = [event for event in hobby_events if event.has_happened == False]
+            events = Event.objects.filter(genre=genre)
+            events = [event for event in events if event.has_happened == False]
             artists = Artist.objects.filter(genres=genre, valid_profile=True, is_activated=True)
             event_dict[genre.name] = events
-            artist_dict[genre.name] = artist
+            artist_dict[genre.name] = artists
 
     return render(request, 'landing_page.html', context={'genres': genres, 'event_dict': event_dict, 'artist_dict': artist_dict})
 
