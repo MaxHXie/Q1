@@ -1,5 +1,8 @@
 from users.models import Artist, Fan
 
+def maxxie():
+    pass
+
 def is_artist(request):
     if request.user.is_authenticated:
         try:
