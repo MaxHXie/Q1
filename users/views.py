@@ -5,6 +5,7 @@ from django.contrib.auth import logout as logout_function
 import q1.functions as functions
 from django.contrib import messages
 from events.views import index
+from .models import Genre,Artist
 
 # Create your views here.
 class ArtistSignup(SignupView):
@@ -43,7 +44,7 @@ def artists(request):
 
     genre_list = Genre.objects.all()
     for genre in genre_list:
-        artists = Artist.objects.filter(valid_profile=True, is_active=True)
+        artists = Artist.objects.filter(valid_profile=True, is_activated=True)
         temp_dict = {}
         for artist in artists:
             events = Event.objects.filter(artist=artist, is_active=True, is_accepted=True, is_hidden=False)
@@ -51,7 +52,7 @@ def artists(request):
             temp_dict[artist.name] = events
         context[genre.name] = temp_dict
 
-    artists = Artist.objects.filter(valid_profile=True, is_active=True)
+    artists = Artist.objects.filter(valid_profile=True, is_activated=True)
 
     return render(request, 'artists_page.html', context={'context':context})
 
