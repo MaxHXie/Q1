@@ -52,7 +52,7 @@
                                     {% if instructor.profile_picture %}
                                         <img src="{{ instructor.profile_picture.url }}"class="rounded-circle img-fluid img-raised">
                                     {% else %}
-                                        <img src="{% static 'external_page/assets/img/placeholder.png'%}" class="rounded-circle img-fluid img-raised">
+                                        <img src="{% static 'events/assets/img/placeholder.png'%}" class="rounded-circle img-fluid img-raised">
                                     {% endif %}
                                 {% endwith %}
                                 <h5 class="title">{{ instructor.first_name|title }} {{ instructor.last_name|title }}</h5>

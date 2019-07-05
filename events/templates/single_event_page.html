@@ -121,7 +121,7 @@
                                 {% if this_event.event_host.profile_picture %}
                                     <img src="{{ this_event.event_host.profile_picture.url }}">
                                 {% else %}
-                                    <img src="{% static 'external_page/assets/img/placeholder.png'%}">
+                                    <img src="{% static 'events/assets/img/placeholder.png'%}">
                                 {% endif %}
                             </div>
                         </div>
@@ -131,12 +131,12 @@
             </div>
         {% elif error_message %}
         <div class="page-header page-header-small" filter-color="orange">
-            <div class="page-header-image" data-parallax="true" style="background-image: url('{% static 'external_page/assets/img/bg5.jpg' %}');">
+            <div class="page-header-image" data-parallax="true" style="background-image: url('{% static 'events/assets/img/bg5.jpg' %}');">
             </div>
             <div class="container">
                 <div class="content-center">
                     <div class="photo-container">
-                        <img src="{% static 'external_page/assets/img/placeholder.png' %}">
+                        <img src="{% static 'events/assets/img/placeholder.png' %}">
                     </div>
                     <h3 class="title">{{ error_message }}</h3>
                 </div>
