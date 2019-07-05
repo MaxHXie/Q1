@@ -2,7 +2,7 @@ from django.shortcuts import render
 from allauth.account.views import SignupView
 from .forms import ArtistForm, FanForm, ArtistSignupForm, FanSignupForm
 
-# Create your views here.
+#These two classes, are responsible for the signing up of artists and fans.
 class ArtistSignup(SignupView):
     template_name = 'custom_allauth/signup_artist.html'
     form_class = ArtistSignupForm
@@ -25,6 +25,7 @@ class FanSignup(SignupView):
         ret.update(self.kwargs)
         return ret
 
+#This view lists all artists
 def artists(request):
     context = {}
 
@@ -42,6 +43,7 @@ def artists(request):
 
     return render(request, 'artists_page.html', context={'context':context})
 
+#This view lists all artists of a certain genre
 def artists_genre(request, genre):
     context = {}
 
@@ -60,6 +62,7 @@ def artists_genre(request, genre):
 
     return render(request, 'artists_page.html', context={'context':context})
 
+#This view presents the user's own profile
 def my_profile(request):
     if request.user.is_authenticated:
         status = functions.user_status(request)
@@ -70,13 +73,16 @@ def my_profile(request):
         elif status == 'not activated':
             message = 'Your account is not activated.'
             return logout(request)
-        else:
-            if functions.is_artist(request) or functions.is_fan(request):
-                return profile_id(request, user.id)
-            else:
-                message = 'Something went wrong, please try again.'
-                return logout(request)
 
+    user = request.user
+
+    if functions.is_artist(request) or functions.is_fan(request):
+        return profile_id(request, user.id)
+    else:
+        message = 'Something went wrong, please try again.'
+        return logout(request)
+
+#This view presents a profile of a certain user id
 def profile_id(request, id):
     if request.user.is_authenticated:
         status = functions.user_status(request)
@@ -88,7 +94,7 @@ def profile_id(request, id):
             messages.error(request, 'Your account has not been activated')
             return logout(request)
 
-        user = request.user
+    user = request.user
 
     try:
         user = User.objects.get(pk=user_id)

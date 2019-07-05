@@ -17,6 +17,7 @@ def index(request):
             message = "Your account have not been activated."
             return logout(request)
 
+    # Get all genres and events and present them on the landing page with a pre-programmed way of sorting / prioritizing.
     genres = Genre.objects.all()
     event_dict = {}
     artist_dict = {}
@@ -74,6 +75,7 @@ def create(request):
         message = "You are not logged in as an artist"
         return all(request, id)
 
+#Confirmation page where artist double checks information about his or her new event.
 def confirm(request, id):
     if functions.is_artist(request):
         user = request.user
@@ -105,6 +107,7 @@ def confirm(request, id):
         message = "You are not logged in as an artist"
         return all(request)
 
+#Page where single event is showcased. Here the user can read about the event, signup, see videos, see pictures about the event etc.
 def single(request, id):
     if request.user.is_authenticated:
         status = functions.user_status(request)
@@ -135,9 +138,7 @@ def single(request, id):
         message = "This event is no longer visible"
         return all(request)
 
-    '''
-        Check if this user already has signed up for the event or not
-    '''
+    #Check if this user already has signed up for the event or not
     try:
         Signup.objects.get(event=event, user=user, is_success=True)
         is_signed_up = True
@@ -146,6 +147,7 @@ def single(request, id):
 
     return render(request, 'single_page.html', context={'event': event, 'user': user, 'is_signed_up': is_signed_up})
 
+#Showcase all events that are relevant
 def all(request):
     if request.user.is_authenticated:
         status = functions.user_status(request)
@@ -176,6 +178,7 @@ def all(request):
         '''
         all_events = Event.objects.filter(is_active=True, is_accepted=True, is_hidden=False)
 
+        #The code below sorts all events.
         try:
             genre = Genre.objects.get(name__iexact=search_text)
             genre_events = all_events.filter(genre=genre)
@@ -225,6 +228,7 @@ def my_events(request):
         message = "You are not logged in as an artist"
         return all_events(request)
 
+#Very similar to the create view. Look at that.
 def edit(request, id):
     if request.user.is_authenticated:
         status = functions.user_status(request)
@@ -267,8 +271,9 @@ def edit(request, id):
         message = "You are not logged in as an artist"
         return single(request, id)
 
+#List all participants to a certain event. Only visible to the host of the event.
 def participants(request, id):
-    if functions.is_instructor(request):
+    if functions.is_artist(request):
         try:
             event = Event.objects.get(pk=id)
         except:
@@ -319,6 +324,7 @@ def hide_show():
         message = 'You are not logged in as an artist.'
         return all(request)
 
+#Continue building on this
 def signup(request, id):
     if request.user.is_authenticated:
         try:
