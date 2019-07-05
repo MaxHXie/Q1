@@ -24,6 +24,7 @@ def index(request):
     genres = Genre.objects.all()
     event_dict = {}
     artist_dict = {}
+
     if len(genres) == 0:
         genres = None
 

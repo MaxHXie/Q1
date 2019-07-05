@@ -233,7 +233,7 @@ def follow(request):
             return profile_id(request, user_id)
 
         try:
-            Follower.objects.get(instructor=artist.artist, follower=user)
+            Follower.objects.get(artist=artist.artist, follower=user)
             messages.error(request, 'You are already following %s.' % (artist.artist.name))
 
         except Follower.DoesNotExist:

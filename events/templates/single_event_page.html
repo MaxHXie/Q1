@@ -73,7 +73,7 @@
                         <h2 class="title">Skriv upp dig på deltagarlistan!</h2>
                         <div class="row">
                             <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
-                                {% if this_user.customer or this_user.instructor %}
+                                {% if this_user.fan or this_user.artist %}
                                     {% if signed_up %}
                                         <p class="description">Du är anmäld till det här evenemanget</p>
                                         <button type="submit" class="btn btn-primary btn-round btn-block btn-lg" style="background-color:gray;" disabled>Du är anmäld</button>
@@ -87,7 +87,7 @@
                                     {% endif %}
                                 {% else %}
                                     <p class="description">Du måste registrera dig för att anmäla dig</p>
-                                    <a href="{% url 'customer_signup' %}"><button class="btn btn-primary btn-round btn-block btn-lg">Registrera dig</button></a>
+                                    <a href="{% url 'fan_signup' %}"><button class="btn btn-primary btn-round btn-block btn-lg">Registrera dig</button></a>
                                 {% endif %}
                             </div>
                         </div>

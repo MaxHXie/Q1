@@ -44,36 +44,36 @@
                 </form>
                 {% if genre != None %}
                 <div class="team">
-                    <div class="row row-instructor">
-                        {% for instructor in instructors %}
-                        <div class="card card-signup col-md-4" data-background-color="orange" style="cursor: pointer; margin-bottom:25px;" onclick="window.location='{% url 'profile_id' instructor.user.id %}'">
+                    <div class="row row-artist">
+                        {% for artist in artists %}
+                        <div class="card card-signup col-md-4" data-background-color="orange" style="cursor: pointer; margin-bottom:25px;" onclick="window.location='{% url 'profile_id' artist.user.id %}'">
                             <div class="team-player">
-                                {% with instructor.user.id|slugify as user_id %}
-                                    {% if instructor.profile_picture %}
-                                        <img src="{{ instructor.profile_picture.url }}"class="rounded-circle img-fluid img-raised">
+                                {% with artist.user.id|slugify as user_id %}
+                                    {% if artist.profile_picture %}
+                                        <img src="{{ artist.profile_picture.url }}"class="rounded-circle img-fluid img-raised">
                                     {% else %}
                                         <img src="{% static 'events/assets/img/placeholder.png'%}" class="rounded-circle img-fluid img-raised">
                                     {% endif %}
                                 {% endwith %}
-                                <h5 class="title">{{ instructor.first_name|title }} {{ instructor.last_name|title }}</h5>
-                                <p>{{ instructor.city|title }}, {{ instructor.city_district|title }}</p>
-                                {% if instructor.price > 0 %}
-                                    <p>{{ instructor.price }} kr {{ instructor.get_price_model_display }}</p>
+                                <h5 class="title">{{ artist.first_name|title }} {{ artist.last_name|title }}</h5>
+                                <p>{{ artist.city|title }}, {{ artist.city_district|title }}</p>
+                                {% if artist.price > 0 %}
+                                    <p>{{ artist.price }} kr {{ artist.get_price_model_display }}</p>
                                 {% endif %}
-                                {% if instructor.maximum_students > 0 %}
-                                    <p>Tar upp till {{ instructor.maximum_students }} personer/tillfälle</p>
+                                {% if artist.maximum_students > 0 %}
+                                    <p>Tar upp till {{ artist.maximum_students }} personer/tillfälle</p>
                                 {% endif %}
-                                {% if instructor.work_in_instructor_home == True %}
+                                {% if artist.work_in_artist_home == True %}
                                     <p>Jag kan hålla lektioner i mitt hem</p>
                                 {% endif %}
-                                {% if instructor.work_in_student_home == True %}
+                                {% if artist.work_in_student_home == True %}
                                     <p>Jag kan hålla lektioner i andras hem</p>
                                 {% endif %}
                             </div>
                         </div>
                             {% if forloop.counter|divisibleby:3 %}
                                 </div>
-                                <div class="row row-instructor">
+                                <div class="row row-artist">
                             {% endif %}
                         {% endfor %}
                     </div>
@@ -88,7 +88,7 @@
         <div class="section section-contact-us text-center" id="work-with-us">
             <div class="container">
                 <h2 class="title">{% trans 'Du är just nu inloggad som' %}</h2>
-                <h3>{{ user.instructor.first_name }} {{ user.instructor.last_name }}</h3>
+                <h3>{{ user.artist.first_name }} {{ user.artist.last_name }}</h3>
                 <div class="row">
                     <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
                         <div class="send-button">

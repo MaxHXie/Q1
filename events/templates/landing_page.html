@@ -116,10 +116,10 @@ function search_key_press(e) {
                                     <a class="nav-link"><strong>{{ genre.name|upper }}</strong></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active"><i class="now-ui-icons objects_spaceship"></i> {{ event_dict|lookup_dict:genre.name|length }} Evenemang</a>
+                                    <a class="nav-link active"><i class="now-ui-icons objects_spaceship"></i> {{ event_dict|lookup_dict:genre.name|length }} Events</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active"><i class="now-ui-icons users_single-02"></i> {{ artist_dict|lookup_dict:genre.name|length }} Instruktörer</a>
+                                    <a class="nav-link active"><i class="now-ui-icons users_single-02"></i> {{ artist_dict|lookup_dict:genre.name|length }} Artists</a>
                                 </li>
                             </ul>
                             <div class="card-body" style="height:250px; background-image: url('{% static 'events/assets/img/genre/'|add:genre.name|add:'_small_banner.jpg' %}');">

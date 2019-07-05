@@ -17,17 +17,17 @@
 
         <div class="section section-tabs" id="our-offerings">
             <div class="container">
-                {% if user.instructor %}
+                {% if user.artist %}
                 <div class="text-center">
                     <a class="btn btn-primary btn-round btn-lg" href="{% url 'create_event' %}" style="color:white; background-color:#2CA8FF;"><strong><i class="now-ui-icons arrows-1_share-66"></i> {% trans 'Skapa evenemang' %}</strong></a>
                 </div>
                 {% endif %}
                 {% if hobby %}
                     <div class="text-center">
-                        {% if instructors_for_hobby|length == 0 %}
+                        {% if artists_for_hobby|length == 0 %}
                             <a href="{% url 'all_events' %}?search_hobby_event={{ hobby.hobby_name }}" class="btn btn-primary btn-round btn-lg" style="color:white; background-color:rgb(130, 130, 130);" disabled>{% trans 'Det finns inga aktiva instruktörer för' %} {{ hobby.hobby_name }}</a>
                         {% else %}
-                            <a href="{% url 'instructors' hobby.hobby_name %}" class="btn btn-primary btn-round btn-lg" style="color:white; background-color:#2CA8FF;"><strong>Se alla instruktörer för {{ hobby.hobby_name }} ({{ instructors_for_hobby|length }})</strong></a>
+                            <a href="{% url 'artists' hobby.hobby_name %}" class="btn btn-primary btn-round btn-lg" style="color:white; background-color:#2CA8FF;"><strong>Se alla instruktörer för {{ hobby.hobby_name }} ({{ artists_for_hobby|length }})</strong></a>
                         {% endif %}
                     </div>
                 {% endif %}
@@ -53,7 +53,7 @@
                     {% for event in event_list %}
                         <div class="col-md-10 col-lg-8 col-xl-6 ml-auto mr-auto">
                             <!-- Tabs with Background on Card -->
-                            <div class="card" style="cursor:pointer;" onclick="window.location='{% url 'single_event' event.id %}'">
+                            <div class="card" style="cursor:pointer;" onclick="window.location='{% url 'single' event.id %}'">
                                 <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="orange">
                                     <li class="nav-item">
                                         <a class="nav-link"><strong>{{ event.event_name|upper }}</strong></a>
@@ -62,7 +62,7 @@
                                         <a class="nav-link active"><i class="now-ui-icons users_single-02"></i>{{ event.hobbyeventsignup_set.all|length }}</a>
                                     </li>
                                 </ul>
-                                {% if event.is_active == True and event.is_accepted == True and event.is_hidden == False and event.has_happened == False %}
+                                {% if event.is_active == True and event.is_confirmed == True and event.is_hidden == False and event.has_happened == False %}
                                     <div class="card-body" style="max-height:500px; background-color:rgba({{ event.event_color_red }},{{ event.event_color_green }},{{ event.event_color_blue }}, 1.0);">
                                 {% else %}
                                     <div class="card-body" style="max-height:500px; background-color:rgba(200, 200, 200, 1.0);">
@@ -102,7 +102,7 @@
         <div class="section section-contact-us text-center" id="work-with-us">
             <div class="container">
                 <h2 class="title">{% trans 'Du är just nu inloggad som' %}</h2>
-                <h3>{{ user.instructor.first_name }} {{ user.instructor.last_name }}</h3>
+                <h3>{{ user.artist.first_name }} {{ user.artist.last_name }}</h3>
                 <div class="row">
                     <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
                         <div class="send-button">

@@ -5,7 +5,7 @@
         <nav>
             <ul>
                 {% if user.is_authenticated %}
-                    {% if user.instructor %}
+                    {% if user.artist %}
                         <li>
                             <a href="{% url 'my_profile' %}"><strong>{% trans 'My profile' %}</strong></a>
                         </li>
@@ -24,7 +24,7 @@
                         <li>
                             <a href="{% url 'logout' %}">{% trans 'Log out' %}</a>
                         </li>
-                    {% elif user.customer %}
+                    {% elif user.fan %}
                         <li>
                             <a href="{% url 'settings' %}">{% trans 'Account settings' %}</a>
                         </li>
