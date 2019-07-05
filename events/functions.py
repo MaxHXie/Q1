@@ -1,8 +1,3 @@
-from users.models import Artist, Fan
-
-def maxxie():
-    pass
-
 def is_artist(request):
     if request.user.is_authenticated:
         try:
@@ -23,14 +18,6 @@ def is_fan(request):
     else:
         return False
 
-def get_authenticated_user(request):
-    if request.user.is_authenticated:
-        user = request.user
-    else:
-        user = None
-
-    return user
-
 def user_status(request):
     user = request.user
     if is_artist(request):
@@ -40,9 +27,9 @@ def user_status(request):
                 if artist.is_active:
                     return 'success'
                 else:
-                    return 'not active'
+                    return 'not_active'
             else:
-                return 'not valid'
+                return 'not_valid'
         except Artist.DoesNotExist:
             artist = Artist.objects.create(user=user)
             artist.save()
@@ -55,20 +42,10 @@ def user_status(request):
                 if fan.is_active:
                     return 'success'
                 else:
-                    return 'not active'
+                    return 'not_active'
             else:
-                return 'not valid'
+                return 'not_valid'
         except Fan.DoesNotExist:
             fan = Fan.objects.get(user=user)
             fan.save()
             return False
-
-def create_artist(user):
-    artist = Artist.objects.create(user=user)
-    artist.save()
-    return artist
-
-def create_fan(user):
-    fan = Fan.objects.create(user=user)
-    fan.save()
-    return fan

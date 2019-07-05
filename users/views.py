@@ -139,7 +139,7 @@ def profile_id(request, id):
         message = 'This profile no longer exists.'
         return render(request, 'profile_page.html')
 
-    if profile.is_activated == False:
+    if profile.is_active == False:
         message = 'This profile is no longer active'
         return render(request, 'profile_page.html')
 

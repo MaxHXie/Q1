@@ -29,7 +29,7 @@
         "last_name": "Svensson",
         "email": "svennesvenneson@gmail.com",
         "is_staff": false,
-        "is_active": false,
+        "is_active": true,
         "date_joined": "2019-02-02T10:27:50.564Z",
         "groups": [],
         "user_permissions": []
@@ -47,7 +47,7 @@
         "last_name": "Larsson",
         "email": "Lassebassekingkong@gmail.com",
         "is_staff": false,
-        "is_active": false,
+        "is_active": true,
         "date_joined": "2019-01-02T10:27:50.564Z",
         "groups": [],
         "user_permissions": []
@@ -65,7 +65,7 @@
         "last_name": "Ingvedotter",
         "email": "IngensommarutanIngva@gmail.com",
         "is_staff": false,
-        "is_active": false,
+        "is_active": true,
         "date_joined": "2019-07-01T10:27:50.564Z",
         "groups": [],
         "user_permissions": []

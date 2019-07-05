@@ -31,7 +31,7 @@ class Artist(models.Model):
                             )
     profile_picture = models.ImageField(upload_to="profile_picture", blank=True)
     valid_profile = models.BooleanField(default=False)
-    is_activated = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=False)
     accepted_terms = models.BooleanField(default=False)
 
     def __str__(self):

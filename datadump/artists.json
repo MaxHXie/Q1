@@ -16,8 +16,8 @@
         "gender": "F",
         "profile_picture": "profile_picture/ingvaingvdotter.jpeg",
         "valid_profile": false,
-        "is_activated": false,
-        "accepted_terms": false
+        "is_active": true,
+        "accepted_terms": true
     }
 },
 {
@@ -37,8 +37,8 @@
         "gender": "M",
         "profile_picture": "profile_picture/Larsson.jpeg",
         "valid_profile": false,
-        "is_activated": false,
-        "accepted_terms": false
+        "is_active": true,
+        "accepted_terms": true
     }
 },
 {
@@ -58,8 +58,8 @@
         "gender": "M",
         "profile_picture": "profile_picture/Svensson.jpeg",
         "valid_profile": false,
-        "is_activated": false,
-        "accepted_terms": false
+        "is_active": true,
+        "accepted_terms": true
     }
 }
 ]
