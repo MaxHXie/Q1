@@ -1,0 +1,31 @@
+[
+    {
+        "model": "users.genre",
+        "pk": 1,
+        "fields": {
+            "name": "rock"
+        }
+    },
+    {
+        "model": "users.genre",
+        "pk": 2,
+        "fields": {
+            "name": "pop"
+        }
+    },
+    {
+        "model": "users.genre",
+        "pk": 3,
+        "fields": {
+            "name": "dansband"
+        }
+    },
+    {
+        "model": "users.genre",
+        "pk": 4,
+        "fields": {
+            "name": "schlager"
+        }
+    }
+
+]

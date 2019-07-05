@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.db.models import Q
 from users.models import Genre
 from .models import Event
+import q1.functions as functions
+from django.contrib import messages
+
 # Create your views here.
 
 colors = [(123,205,47), (119,172,236), (236,219,84), (240,237,229), (252,169,133), (209,255,244)]
@@ -73,7 +76,7 @@ def create(request):
             return render(request, 'create_event.html', context={'form': form})
     else:
         message = "You are not logged in as an artist"
-        return all(request, id)
+        return all_events(request, id)
 
 #Confirmation page where artist double checks information about his or her new event.
 def confirm(request, id):
@@ -105,7 +108,7 @@ def confirm(request, id):
             return create_event(request)
     else:
         message = "You are not logged in as an artist"
-        return all(request)
+        return all_events(request)
 
 #Page where single event is showcased. Here the user can read about the event, signup, see videos, see pictures about the event etc.
 def single(request, id):
@@ -125,18 +128,18 @@ def single(request, id):
         event = Event.objects.get(pk=id)
     except Event.DoesNotExist:
         message = "The event you are looking for no longer exists"
-        return all(request)
+        return all_events(request)
 
     if event.artist.user == user and event.is_confirmed == False:
         return confirm(request, id)
 
     if event.has_happened:
         message = "This event has already passed"
-        return all(request)
+        return all_events(request)
 
     if event.is_hidden:
         message = "This event is no longer visible"
-        return all(request)
+        return all_events(request)
 
     #Check if this user already has signed up for the event or not
     try:
@@ -147,8 +150,7 @@ def single(request, id):
 
     return render(request, 'single_page.html', context={'event': event, 'user': user, 'is_signed_up': is_signed_up})
 
-#Showcase all events that are relevant
-def all(request):
+def all_events(request):
     if request.user.is_authenticated:
         status = functions.user_status(request)
         if status == "not valid":
@@ -221,8 +223,8 @@ def my_events(request):
             message = "Your account is not activated."
             return logout(request)
 
-    if function.is_artist(request):
-        artists_events = Event.objects.filter(event_host=request.user.instructor).order_by('-datetime')
+    if functions.is_artist(request):
+        artists_events = Event.objects.filter(artist=request.user.artist).order_by('-datetime')
         return render(request, 'my_events_page.html', context={'event_list': artists_events})
     else:
         message = "You are not logged in as an artist"
@@ -240,7 +242,7 @@ def edit(request, id):
             message = "Your account is not activated."
             return logout(request)
 
-    if function.is_artist(request):
+    if functions.is_artist(request):
         try:
             event = Event.objects.get(pk=id)
         except Event.DoesNotExist:
@@ -288,18 +290,18 @@ def participants(request, id):
             return all_events(request)
 
     else:
-        message = "You are not logged in as an instructor"
+        message = "You are not logged in as an artist"
         return all_events(request)
 
 def hide_show():
-    if functions.is_instructor(request):
+    if functions.is_artist(request):
         try:
             event = Event.objects.get(pk=id)
         except Event.DoesNotExist:
             message = "That event does not exist anymore"
             return all_events(request)
 
-        artists_events = Event.objects.filter(artist=request.user.instructor)
+        artists_events = Event.objects.filter(artist=request.user.artist)
 
         if event in artists_events:
             if request.method == "POST":
@@ -322,7 +324,7 @@ def hide_show():
             message = 'You do not have access to this event.'
     else:
         message = 'You are not logged in as an artist.'
-        return all(request)
+        return all_events(request)
 
 #Continue building on this
 def signup(request, id):
@@ -331,7 +333,7 @@ def signup(request, id):
             event = Event.objects.get(pk=id)
         except:
             message = 'That event does not exist anymore.'
-            return all(request)
+            return all_events(request)
 
         try:
             Event.objects.get(event=event, user=request.user)

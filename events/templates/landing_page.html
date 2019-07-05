@@ -88,10 +88,10 @@ function search_key_press(e) {
                                         <input type="text" class="form-control" id="search-hobby" onkeyup="scroll_alt()" onkeypress="search_key_press(event)" placeholder="Sök här eller scrolla ned för mer...">
                                     </div>
                                     <ul id="search-list">
-                                        <li id="immune"><a href="{% url 'all' %}" style="color:#2CA8FF;">Klicka här för att komma igång snabbt</a></li>
+                                        <li id="immune"><a href="{% url 'all_events' %}" style="color:#2CA8FF;">Klicka här för att komma igång snabbt</a></li>
                                     {% if hobbies != None %}
                                         {% for hobby in hobbies %}
-                                            <li><a href="{% url 'all' %}?search_hobby_event={{ hobby.hobby_name }}" style="color:#3f3f3f">{{ hobby.hobby_name|title }}</a></li>
+                                            <li><a href="{% url 'all_events' %}?search_hobby_event={{ hobby.hobby_name }}" style="color:#3f3f3f">{{ hobby.hobby_name|title }}</a></li>
                                         {% endfor %}
                                     {% endif %}
                                     </ul>
@@ -110,7 +110,7 @@ function search_key_press(e) {
                 {% for hobby in hobbies %}
                     <div class="col-md-10 col-lg-8 col-xl-6 ml-auto mr-auto">
                         <!-- Tabs with Background on Card -->
-                        <div class="card" style="cursor:pointer;" onclick="window.location='{% url 'all' %}?search_hobby_event={{ hobby.hobby_name }}'">
+                        <div class="card" style="cursor:pointer;" onclick="window.location='{% url 'all_events' %}?search_hobby_event={{ hobby.hobby_name }}'">
                             <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="orange">
                                 <li class="nav-item">
                                     <a class="nav-link"><strong>{{ hobby.hobby_name|upper }}</strong></a>

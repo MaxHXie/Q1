@@ -1,0 +1,71 @@
+[
+{
+    "model": "events.event",
+    "pk": 1,
+    "fields": {
+        "artist": 1,
+        "genre": 1,
+        "name": "IngvasEvent",
+        "datetime": "2019-07-24T16:00:00Z",
+        "city": "Stockholm",
+        "city_district": "Norrmalm",
+        "address": "Normalmsgatan 123",
+        "location_name": "HyfsadLokalPub",
+        "price": 500,
+        "description": "Ingvas first event nagonsin. Kom kom Lorem ipsum osv",
+        "is_active": false,
+        "is_confirmed": false,
+        "is_hidden": false,
+        "red": 255,
+        "green": 255,
+        "blue": 255,
+        "time_created": "2019-07-02T16:00:10.192Z"
+    }
+},
+{
+    "model": "events.event",
+    "pk": 2,
+    "fields": {
+        "artist": 2,
+        "genre": 3,
+        "name": "LasseEvent1",
+        "datetime": "2019-07-22T09:00:00Z",
+        "city": "Stockholm",
+        "city_district": "S\u00f6dermalm",
+        "address": "Sodermalmsgatan 123",
+        "location_name": "Soderhak 14",
+        "price": 246,
+        "description": "Lars ska spela gitarr och dansa lite kl 8 lorem ipsum osv",
+        "is_active": true,
+        "is_confirmed": false,
+        "is_hidden": false,
+        "red": 255,
+        "green": 255,
+        "blue": 255,
+        "time_created": "2019-07-02T16:01:08.260Z"
+    }
+},
+{
+    "model": "events.event",
+    "pk": 3,
+    "fields": {
+        "artist": 3,
+        "genre": 4,
+        "name": "SchlagerKvall med Sven",
+        "datetime": "2019-07-27T16:35:00Z",
+        "city": "Stockholm",
+        "city_district": "Vasastan",
+        "address": "Vasastansgatan 15",
+        "location_name": "NiceLokalVasastan",
+        "price": 600,
+        "description": "Sven ska sjunga schlager i vasastan, hoppas ni koper biljetter annars sa kommer bara svens ex-fru och hennes nya man. Stod Sven genom att komma annars kommer han formodligen fa en till medalalderskris!!!!! :O",
+        "is_active": true,
+        "is_confirmed": false,
+        "is_hidden": false,
+        "red": 255,
+        "green": 255,
+        "blue": 255,
+        "time_created": "2019-07-02T16:03:40.776Z"
+    }
+}
+]

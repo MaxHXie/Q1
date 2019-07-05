@@ -1,0 +1,65 @@
+[
+{
+    "model": "users.artist",
+    "pk": 1,
+    "fields": {
+        "user": 4,
+        "name": "ArtistIngva",
+        "first_name": "Ingva",
+        "last_name": "Ingvadotter",
+        "genres": 1,
+        "email": "aaa@asdg.se",
+        "telephone": "303503450",
+        "city": "Stockholm",
+        "city_district": "Vasastan",
+        "description": "Hejsvejs jag heter ingva lorem ipsum",
+        "gender": "F",
+        "profile_picture": "profile_picture/ingvaingvdotter.jpeg",
+        "valid_profile": false,
+        "is_activated": false,
+        "accepted_terms": false
+    }
+},
+{
+    "model": "users.artist",
+    "pk": 2,
+    "fields": {
+        "user": 3,
+        "name": "LarsArtistKingen",
+        "first_name": "Lars",
+        "last_name": "Larsson",
+        "genres": 3,
+        "email": "lasse@example.se",
+        "telephone": "12341354",
+        "city": "Stockholm",
+        "city_district": "Norrmalm",
+        "description": "Hej lassebasse med sin nya singel det aer jag. Lorem upsum unt so veiter",
+        "gender": "M",
+        "profile_picture": "profile_picture/Larsson.jpeg",
+        "valid_profile": false,
+        "is_activated": false,
+        "accepted_terms": false
+    }
+},
+{
+    "model": "users.artist",
+    "pk": 3,
+    "fields": {
+        "user": 2,
+        "name": "GitarSvenne",
+        "first_name": "Sven",
+        "last_name": "Svensson",
+        "genres": 2,
+        "email": "svennssssosooooon@example.se",
+        "telephone": "1923412354",
+        "city": "Stockholm",
+        "city_district": "S\u00f6dermalm",
+        "description": "Gitarspelaren svenneboiii det e jag. Jag bor pa soder och roker mycket braj.",
+        "gender": "M",
+        "profile_picture": "profile_picture/Svensson.jpeg",
+        "valid_profile": false,
+        "is_activated": false,
+        "accepted_terms": false
+    }
+}
+]

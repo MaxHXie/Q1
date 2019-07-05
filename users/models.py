@@ -12,15 +12,15 @@ class Artist(models.Model):
         User,
         on_delete = models.CASCADE
     )
-    name = models.CharField(max_length=64)
-    first_name = models.CharField(max_length=32)
-    last_name = models.CharField(max_length=32)
-    genres = models.ForeignKey(Genre, on_delete=models.CASCADE)
-    email = models.EmailField(max_length=64)
-    telephone = models.CharField(max_length=16)
-    city = models.CharField(max_length=64)
-    city_district = models.CharField(max_length=64)
-    description = models.TextField(max_length=2048)
+    name = models.CharField(max_length=64, blank=True)
+    first_name = models.CharField(max_length=32, blank=True)
+    last_name = models.CharField(max_length=32, blank=True)
+    genres = models.ForeignKey(Genre, on_delete=models.CASCADE, blank=True, null=True)
+    email = models.EmailField(max_length=64, blank=True)
+    telephone = models.CharField(max_length=16, blank=True)
+    city = models.CharField(max_length=64, blank=True)
+    city_district = models.CharField(max_length=64, blank=True)
+    description = models.TextField(max_length=2048, blank=True)
     gender = models.CharField(max_length=1,
                             choices = (
                                 ('N', 'No answer'),
@@ -29,7 +29,7 @@ class Artist(models.Model):
                                 ('O', 'Other')
                             ), default="N"
                             )
-    profile_picture = models.ImageField(upload_to="profile_picture")
+    profile_picture = models.ImageField(upload_to="profile_picture", blank=True)
     valid_profile = models.BooleanField(default=False)
     is_activated = models.BooleanField(default=False)
     accepted_terms = models.BooleanField(default=False)

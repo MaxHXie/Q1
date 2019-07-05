@@ -7,6 +7,7 @@ from allauth.account.forms import SignupForm
 from django.forms import TextInput, Select, Textarea, RadioSelect, CheckboxInput, NumberInput, CheckboxSelectMultiple
 from django.core.files.images import get_image_dimensions
 from django.utils.translation import gettext as _
+import q1.functions as functions
 import re
 
 
@@ -17,18 +18,18 @@ class CheckboxSelectMultiple(CheckboxSelectMultiple):
         output = output.replace(u'</li>', u'')
         return mark_safe(output.replace(u'<ul id="id_hobbies">', u''))
 
-class ArtistSignupForm(SignupForm):
+class ArtistSignUpForm(SignupForm):
     def save(self, request):
-        user = super(ArtistSignupForm, self).save(request)
+        user = super(ArtistSignUpForm, self).save(request)
         user.save()
-        functions.create_artist(user, email=user.email)
+        functions.create_artist(user)
         return user
 
-class FanSignupForm(SignupForm):
+class FanSignUpForm(SignupForm):
     def save(self, request):
-        user = super(FanSignupForm, self).save(request)
+        user = super(FanSignUpForm, self).save(request)
         user.save()
-        functions.create_fan(user, email=user.email)
+        functions.create_fan(user)
         return user
 
 class ArtistForm(ModelForm):
@@ -144,11 +145,6 @@ class ArtistForm(ModelForm):
     #Please ignore
     def clean(self):
         cleaned_data=super(ArtistForm, self).clean()
-
-        work_in_student_home = self.cleaned_data['work_in_student_home']
-        work_in_artist_home = self.cleaned_data['work_in_artist_home']
-        if work_in_artist_home == False and work_in_student_home == False:
-            raise forms.ValidationError({'work_in_student_home':[_("Du måste välja hur du vill lära ut.")]}, code="choose_one")
 
 class FanForm(ModelForm):
     honeypot = forms.CharField(required=False,widget=forms.HiddenInput)
