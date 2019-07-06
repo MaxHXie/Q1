@@ -9,7 +9,7 @@ urlpatterns = [
     path('all/', views.all_events, name="all_events"),
     path('edit/<int:id>/', views.edit, name="edit"),
     path('my/', views.my_events, name="my_events"),
-    path('<int:id>/participants', views.participants, name="participants"),
-    path('<int:id>/hide_show', views.hide_show, name="hide_show"),
-    path('<int:id>/signup', views.signup, name="signup")
+    path('participants/<int:id>/', views.participants, name="participants"),
+    path('hide_show/<int:id>/', views.hide_show, name="hide_show"),
+    path('signup/<int:id>/', views.signup, name="signup")
 ]

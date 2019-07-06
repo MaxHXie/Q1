@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
 from users.models import Genre, Artist, Fan
-from .models import Event
+from .models import Event, Signup
 import q1.functions as functions
 from django.contrib import messages
 
@@ -149,7 +149,7 @@ def single(request, id):
     except Signup.DoesNotExist:
         is_signed_up = False
 
-    return render(request, 'single_page.html', context={'event': event, 'user': user, 'is_signed_up': is_signed_up})
+    return render(request, 'single_event_page.html', context={'event': event, 'user': user, 'is_signed_up': is_signed_up})
 
 def all_events(request):
     if request.user.is_authenticated:

@@ -143,7 +143,7 @@ def profile_id(request, id):
         message = 'This profile is no longer active'
         return render(request, 'profile_page.html')
 
-    if profile.is_artist:
+    if functions.profile_type(user) == "artist":
         genre_list = Genre.objects.filter(artist=profile)
     else:
         genre_list = []

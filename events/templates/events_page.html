@@ -22,12 +22,12 @@
                     <a class="btn btn-primary btn-round btn-lg" href="{% url 'create_event' %}" style="color:white; background-color:#2CA8FF;"><strong><i class="now-ui-icons arrows-1_share-66"></i> {% trans 'Skapa evenemang' %}</strong></a>
                 </div>
                 {% endif %}
-                {% if hobby %}
+                {% if genre %}
                     <div class="text-center">
-                        {% if artists_for_hobby|length == 0 %}
-                            <a href="{% url 'all_events' %}?search_hobby_event={{ hobby.hobby_name }}" class="btn btn-primary btn-round btn-lg" style="color:white; background-color:rgb(130, 130, 130);" disabled>{% trans 'Det finns inga aktiva instruktörer för' %} {{ hobby.hobby_name }}</a>
+                        {% if artists_for_genre|length == 0 %}
+                            <a href="{% url 'all_events' %}?search_genre_event={{ genre.genre_name }}" class="btn btn-primary btn-round btn-lg" style="color:white; background-color:rgb(130, 130, 130);" disabled>{% trans 'Det finns inga aktiva instruktörer för' %} {{ genre.genre_name }}</a>
                         {% else %}
-                            <a href="{% url 'artists' hobby.hobby_name %}" class="btn btn-primary btn-round btn-lg" style="color:white; background-color:#2CA8FF;"><strong>Se alla instruktörer för {{ hobby.hobby_name }} ({{ artists_for_hobby|length }})</strong></a>
+                            <a href="{% url 'artists' genre.genre_name %}" class="btn btn-primary btn-round btn-lg" style="color:white; background-color:#2CA8FF;"><strong>Se alla instruktörer för {{ genre.genre_name }} ({{ artists_for_genre|length }})</strong></a>
                         {% endif %}
                     </div>
                 {% endif %}
@@ -43,7 +43,7 @@
                             <span class="input-group-addon">
                                 <i class="now-ui-icons ui-1_zoom-bold"></i>
                             </span>
-                            <input type="text" class="form-control" id="search_hobby_event" name="search_hobby_event" value="{% if search_hobby_event %}{{ search_hobby_event }}{% endif %}" onkeyup="scroll_alt()" placeholder="Sök efter ett evenemang här...">
+                            <input type="text" class="form-control" id="search_genre_event" name="search_genre_event" value="{% if search_genre_event %}{{ search_genre_event }}{% endif %}" onkeyup="scroll_alt()" placeholder="Sök efter ett evenemang här...">
                         </div>
                         <input type="submit" class="btn btn-primary" value="Sök">
                     </div>
@@ -56,14 +56,14 @@
                             <div class="card" style="cursor:pointer;" onclick="window.location='{% url 'single' event.id %}'">
                                 <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="orange">
                                     <li class="nav-item">
-                                        <a class="nav-link"><strong>{{ event.event_name|upper }}</strong></a>
+                                        <a class="nav-link"><strong>{{ event.name|upper }}</strong></a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link active"><i class="now-ui-icons users_single-02"></i>{{ event.hobbyeventsignup_set.all|length }}</a>
+                                        <a class="nav-link active"><i class="now-ui-icons users_single-02"></i>{{ event.signup_set.all|length }}</a>
                                     </li>
                                 </ul>
                                 {% if event.is_active == True and event.is_confirmed == True and event.is_hidden == False and event.has_happened == False %}
-                                    <div class="card-body" style="max-height:500px; background-color:rgba({{ event.event_color_red }},{{ event.event_color_green }},{{ event.event_color_blue }}, 1.0);">
+                                    <div class="card-body" style="max-height:500px; background-color:rgba({{ event.red }},{{ event.green }},{{ event.blue }}, 1.0);">
                                 {% else %}
                                     <div class="card-body" style="max-height:500px; background-color:rgba(200, 200, 200, 1.0);">
                                 {% endif %}
@@ -131,7 +131,7 @@
     </div>
     <script>
         $(function(){
-        $("label[for='id_hobbies_0']").hide()
+        $("label[for='id_genres_0']").hide()
         });
     </script>
 {% endblock body %}

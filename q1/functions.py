@@ -23,6 +23,19 @@ def is_fan(request):
     else:
         return False
 
+def profile_type(user):
+    try:
+        Fan.objects.get(user=user)
+        return 'fan'
+    except Fan.DoesNotExist:
+        pass
+    try:
+        Artist.objects.get(user=user)
+        return 'artist'
+    except Artist.DoesNotExist:
+        pass
+    return ''
+
 def get_authenticated_user(request):
     if request.user.is_authenticated:
         user = request.user
