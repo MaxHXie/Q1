@@ -110,7 +110,7 @@ function search_key_press(e) {
                 {% for genre in genres %}
                     <div class="col-md-10 col-lg-8 col-xl-6 ml-auto mr-auto">
                         <!-- Tabs with Background on Card -->
-                        <div class="card" style="cursor:pointer;" onclick="window.location='{% url 'all_events' %}?search_genre_event={{ genre.name }}'">
+                        <div class="card" style="cursor:pointer;" onclick="window.location='{% url 'all_events' %}?search={{ genre.name }}'">
                             <ul class="nav nav-tabs nav-tabs-neutral justify-content-center" role="tablist" data-background-color="orange">
                                 <li class="nav-item">
                                     <a class="nav-link"><strong>{{ genre.name|upper }}</strong></a>

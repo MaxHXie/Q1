@@ -24,10 +24,10 @@
                 {% endif %}
                 {% if genre %}
                     <div class="text-center">
-                        {% if artists_for_genre|length == 0 %}
-                            <a href="{% url 'all_events' %}?search={{ genre.genre_name }}" class="btn btn-primary btn-round btn-lg" style="color:white; background-color:rgb(130, 130, 130);" disabled>{% trans 'Det finns inga aktiva instruktörer för' %} {{ genre.genre_name }}</a>
+                        {% if genre.artist_set.all|length == 0 %}
+                            <a href="{% url 'all_events' %}?search={{ genre.name }}" class="btn btn-primary btn-round btn-lg" style="color:white; background-color:rgb(130, 130, 130);" disabled>{% trans 'Det finns inga aktiva artists för' %} {{ genre.name }}</a>
                         {% else %}
-                            <a href="{% url 'artists' genre.genre_name %}" class="btn btn-primary btn-round btn-lg" style="color:white; background-color:#2CA8FF;"><strong>Se alla instruktörer för {{ genre.genre_name }} ({{ artists_for_genre|length }})</strong></a>
+                            <a href="{% url 'artists_genre' genre.name %}" class="btn btn-primary btn-round btn-lg" style="color:white; background-color:#2CA8FF;"><strong>See all artists for {{ genre.name }} ({{ genre.artist_set.all|length }})</strong></a>
                         {% endif %}
                     </div>
                 {% endif %}

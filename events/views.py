@@ -193,6 +193,7 @@ def all_events(request):
             genre_events = all_events.filter(genre=genre)
         except Genre.DoesNotExist:
             genre_events = Event.objects.none()
+            genre = None
 
         try:
             artist = Artist.objects.get(name__iexact=search_text)
@@ -216,8 +217,9 @@ def all_events(request):
 
     else:
         event_list = Event.objects.filter(is_active=True, is_confirmed=True, is_hidden=False)
+        genre = None
 
-    return render(request, 'events_page.html', context={'event_list': event_list, 'search_text': search_text})
+    return render(request, 'events_page.html', context={'event_list': event_list, 'search_text': search_text, 'genre': genre})
 
 def my_events(request):
     if request.user.is_authenticated:

@@ -6,7 +6,8 @@ import q1.functions as functions
 from django.contrib import messages
 from events.views import index
 from django.contrib.auth.models import User
-from .models import Artist, Fan, Genre
+from .models import Artist, Fan, Genre, Follow
+from events.models import Event
 
 # Create your views here.
 class ArtistSignUp(SignupView):
@@ -49,7 +50,7 @@ def artists(request):
         artists = Artist.objects.filter(valid_profile=True, is_active=True)
         temp_dict = {}
         for artist in artists:
-            events = Event.objects.filter(artist=artist, is_active=True, is_accepted=True, is_hidden=False)
+            events = Event.objects.filter(artist=artist, is_active=True, is_confirmed=True, is_hidden=False)
             events = [event for event in events if event.has_happened == False]
             temp_dict[artist.name] = events
         context[genre.name] = temp_dict
@@ -59,7 +60,7 @@ def artists(request):
     return render(request, 'artists_page.html', context={'context':context})
 
 #This view lists all artists of a certain genre
-def artists_genre(request, genre):
+def artists_genre(request, genre_name):
     '''
     Get and present all artist of a specific genre
 
@@ -68,19 +69,20 @@ def artists_genre(request, genre):
     context = {}
 
     try:
-        genre = Genre.objects.get(name=genre)
+        genre = Genre.objects.get(name=genre_name)
         artists = Artist.objects.filter(genres=genre, valid_profile=True, is_active=True)
-        temp_dict = {}
-        for artist in artists:
-            events = Event.objects.filter(artist=artist, is_active=True, is_accepted=True, is_hidden=False)
-            events = [event for event in events if event.has_happened == False]
-            temp_dict[artist.name] = events
-        contect[genre.name] = temp_dict
+        events = Event.objects.filter(genre=genre, is_active=True, is_confirmed=True, is_hidden=False)
+        events = [event for event in events if event.has_happened == False]
 
     except Genre.DoesNotExist:
-        pass
+        genre = None
+        events = None
+        artists = []
 
-    return render(request, 'artists_page.html', context={'context':context})
+    artists = list(artists)
+
+
+    return render(request, 'artists_page.html', context={'genre': genre, 'artists':artists, 'events':events})
 
 #This view presents the user's own profile
 def my_profile(request):
@@ -123,21 +125,29 @@ def profile_id(request, id):
             messages.error(request, 'Your account has not been activated')
             return logout(request)
 
-    user = request.user
+    this_user = request.user
 
     try:
-        user = User.objects.get(pk=user.id)
+        user = User.objects.get(pk=id)
     except User.DoesNotExist:
         messages.error(request, 'This profile no longer exists')
         return render(request, 'profile_page.html')
 
     if functions.is_artist(request):
         profile = Artist.objects.get(user=user)
+        try:
+            follow = Follow.objects.get(artist=profile, follower=this_user)
+            following = True
+        except Follow.DoesNotExist:
+            following = False
+
     elif functions.is_fan(request):
         profile = Fan.objects.get(user=user)
     else:
         message = 'This profile no longer exists.'
         return render(request, 'profile_page.html')
+
+    followers = len(Follow.objects.filter(artist=profile))
 
     if profile.is_active == False:
         message = 'This profile is no longer active'
@@ -148,7 +158,7 @@ def profile_id(request, id):
     else:
         genre = []
 
-    return render(request, 'profile_page.html', context={'genre': genre, 'profile':profile, 'user':user})
+    return render(request, 'profile_page.html', context={'genre': genre, 'profile':profile, 'this_user':this_user, 'following': following, 'followers': followers})
 
 
 def edit_profile(request):
@@ -208,23 +218,20 @@ def follow(request):
     '''
     Lets a user follow an artist
     '''
-    user = get_authenticated_user(request)
+
+    user = functions.get_authenticated_user(request)
     if user != None:
-        if user.is_artist:
-            profile = user.artist
-        elif user.is_fan:
-            profile = user.fan
-        else:
-            profile = None
 
         if request.method == "POST":
-            user_id = request.method.POST.get('user_id')
+            user_id = request.POST.get('user_id')
         else:
+            messages.error(request, 'Something went wrong.')
             return my_profile(request)
 
         try:
-            artist = User.objects.get(pk=user_Id)
-            if artist.is_artist == False:
+            target_user = User.objects.get(pk=user_id)
+            profile_type = functions.profile_type(target_user)
+            if profile_type != 'artist':
                 messages.error(request, 'You can only follow other artists')
                 return profile_id(request, user_id)
 
@@ -233,23 +240,24 @@ def follow(request):
             return profile_id(request, user_id)
 
         try:
-            Follower.objects.get(artist=artist.artist, follower=user)
-            messages.error(request, 'You are already following %s.' % (artist.artist.name))
+            Follow.objects.get(artist=target_user.artist, follower=user)
+            messages.error(request, 'You are already following %s.' % (target_user.artist.name))
+            return profile_id(request, user_id)
 
-        except Follower.DoesNotExist:
+        except Follow.DoesNotExist:
             pass
 
-        if profile == None:
+        if profile_type == '':
             messages.error(request, 'You do not have the authority to follow artists')
             return profile_id(request, user_id)
 
         else:
-            if user == artist:
+            if user == target_user:
                 messages.error(request, 'You cannot follow yourself')
                 return profile_id(request, user_id)
             else:
-                Follower.objects.create(artist=artist.artist, follower=user)
-                messages.success(request, 'You are now following %s.' % (artist.artist))
+                Follow.objects.create(artist=target_user.artist, follower=user)
+                messages.success(request, 'You are now following %s.' % (target_user.artist.name))
                 return profile_id(request, user_id)
     else:
         messages.error(request, 'You have to be logged in')
@@ -259,49 +267,37 @@ def unfollow(request):
     '''
     Lets a user unfollow an artist
     '''
-    if request.user.is_authenticated:
-        user = functions.get_authenticated_user(request)
-        if user.is_artist:
-            profile = user.artist
-        elif user.is_fan:
-            profile = user.fan
-        else:
-            profile = None
-
+    user = functions.get_authenticated_user(request)
+    if user != None:
         if request.method == "POST":
             user_id = request.POST.get('user_id')
         else:
+            messages.error(request, 'Something went wrong.')
             return my_profile(request)
 
         try:
-            artist = User.objects.get(pk=user_id)
-            if artist.is_artist == False:
-                messages.error(request, 'You can only unfollow artists')
-                return profile_id(request, user_id)
+            target_user = User.objects.get(pk=user_id)
 
         except User.DoesNotExist:
-            messages.error(request, 'This profile no longer exists')
+            messages.error(request, 'This profile does not exist anymore')
             return profile_id(request, user_id)
 
-        if profile == None:
-            messages.error(request, 'You are not authorized to unfollow artists')
+        if user == target_user:
+            messages.error(request, 'You cannot unfollow yourself')
             return profile_id(request, user_id)
-        else:
-            if user == artist:
-                messages.error(request, 'You cannot unfollow yourself')
-                return profile_id(request, user_id)
-            else:
-                follows = Follower.objects.filter(artist=artist.artist, follower=user)
-                if len(follow) == 0:
-                    messages.error(request, 'You are not currently following this artist')
-                    return profile_id(request, user_id)
-                else:
-                    for follow in follows:
-                        follow.delete()
-                message.info(request, 'You have now unfollowed %s.' (artist.artist.name))
-                return profile_id(request, user_id)
+
+        try:
+            instance = Follow.objects.get(artist=target_user.artist, follower=user)
+            instance.delete()
+            messages.success(request, 'You have now unfollowed %s.' % (target_user.artist.name))
+            return profile_id(request, user_id)
+
+        except Follow.DoesNotExist:
+            messages.error(request, 'You are already not following %s.' % (target_user.artist.name))
+            return profile_id(request, user_id)
+
     else:
-        message.error(request, 'You have to be logged in')
+        messages.error(request, 'You have to be logged in')
         return profile_id(request, user_id)
 
 def settings(request):

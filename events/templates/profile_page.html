@@ -47,16 +47,16 @@
         </div>
 
 
-        {% if genre and user != profile.user %}
+        {% if genre and this_user != profile.user and profile.user.artist %}
             <div class="section section-contact-us text-center">
                 <div class="container">
-                    {% if user != profile.user %}
+                    {% if this_user != profile.user %}
                         {% if following == False %}
-                            <form action="{% url 'followr' %}" method="POST">
+                            <form action="{% url 'follow' %}" method="POST">
                                 {% csrf_token %}
                                 <input type="hidden" name="user_id" value="{{ profile.user.id }}">
                                 <div class="button-container">
-                                    <input type="submit" class="btn btn-primary btn-round btn-lg" style="background-color:#2CA8FF;"value="Följ {{ profile.first_name }}">
+                                    <input type="submit" class="btn btn-primary btn-round btn-lg" style="background-color:#2CA8FF;"value="Follow">
                                 </div>
                             </form>
                         {% else %}
@@ -64,7 +64,7 @@
                                 {% csrf_token %}
                                 <input type="hidden" name="user_id" value="{{ profile.user.id }}">
                                 <div class="button-container">
-                                    <input type="submit" class="btn btn-primary btn-round btn-lg" style="background-color:#2CA8FF;" value="Avfölj {{ profile.first_name }}">
+                                    <input type="submit" class="btn btn-primary btn-round btn-lg" style="background-color:#2CA8FF;" value="Avfölj">
                                 </div>
                             </form>
                         {% endif %}
@@ -74,7 +74,7 @@
         {% endif %}
         <div class="section">
             <div class="container">
-                {% if user == profile.user %}
+                {% if this_user == profile.user %}
                     <div class="button-container">
                         <a href="{% url 'edit_profile' %}" class="btn btn-primary btn-round btn-lg">Edit profile</a>
                     </div>
