@@ -67,21 +67,18 @@
                                         </div>
                                     {% endif %}
                                 </div>
-                            {% elif input_type == 'select' %}
-                                {% if field.errors %}
-                                    <span style="color:red">{{ field.errors|first }}</span>
-                                {% endif %}
-                                {{ field }}
                             {% elif input_type == 'checkbox' or input_type == 'radio' %}
                                 {% if field.name == 'genres' %}
                                     <h4> My genre </h4>
                                     {% if field.errors %}
-                                        <span style="color:red;">{{ field.errors|first }}</span>
+                                        <span style="color:red">{{ field.errors|first }}</span>
                                     {% endif %}
+                                    {{ field }}
                                 {% else %}
                                     {% if field.errors %}
                                         <span style="color:red;">{{ field.errors|first }}</span>
                                     {% endif %}
+                                    {{ field }}
                                 {% endif %}
 
                             {% elif input_type == "file" %}

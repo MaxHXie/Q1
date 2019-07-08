@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from django.db.models import Q
 from users.models import Genre, Artist, Fan
-from .models import Event, Signup
+from .models import Event, Signup, Search
 import q1.functions as functions
 from django.contrib import messages
+from .forms import CreateEventForm
+import random
 
 # Create your views here.
 
@@ -54,7 +56,7 @@ def create(request):
             color = random.choice(colors)
             event = Event.objects.create(
                 artist = user.artist,
-                genre = user.genre,
+                genre = user.artist.genres,
                 is_active = True,
                 is_confirmed = False,
                 is_hidden = False,
@@ -74,10 +76,10 @@ def create(request):
                 return render(request, 'create_event.html', context={'form', form})
         else:
             form = CreateEventForm()
-            return render(request, 'create_event.html', context={'form': form})
+            return render(request, 'create_event_page.html', context={'form': form})
     else:
         message = "You are not logged in as an artist"
-        return all_events(request, id)
+        return all_events(request)
 
 #Confirmation page where artist double checks information about his or her new event.
 def confirm(request, id):
@@ -100,7 +102,7 @@ def confirm(request, id):
                     return single(request, id)
 
                 else:
-                    return render(request, 'event_terminal.html', context={'event': event})
+                    return render(request, 'event_terminal_page.html', context={'event': event})
             else:
                 message = "You have already published this event."
                 return single_event(request, id)
@@ -131,23 +133,27 @@ def single(request, id):
         message = "The event you are looking for no longer exists"
         return all_events(request)
 
-    if event.artist.user == user and event.is_confirmed == False:
-        return confirm(request, id)
-
-    if event.has_happened:
-        message = "This event has already passed"
-        return all_events(request)
-
-    if event.is_hidden:
-        message = "This event is no longer visible"
-        return all_events(request)
-
-    #Check if this user already has signed up for the event or not
     try:
         Signup.objects.get(event=event, user=user, is_success=True)
         is_signed_up = True
     except Signup.DoesNotExist:
         is_signed_up = False
+
+    if event.artist.user == user and event.is_confirmed == False:
+        return confirm(request, id)
+
+    if event.has_happened:
+        message = "This event has already passed"
+        return render(request, 'single_event_page.html', context={'event': event, 'user': user, 'is_signed_up': is_signed_up})
+
+    if event.is_hidden:
+        if user == event.artist.user:
+            return render(request, 'single_event_page.html', context={'event': event, 'user': user, 'is_signed_up': is_signed_up})
+        else:
+            message = "This event is no longer visible"
+            return all_events(request)
+
+    #Check if this user already has signed up for the event or not
 
     return render(request, 'single_event_page.html', context={'event': event, 'user': user, 'is_signed_up': is_signed_up})
 
@@ -164,10 +170,10 @@ def all_events(request):
 
     user = request.user
 
-    search_text = request.GET.get('search_text')
+    search_text = request.GET.get('search')
 
     if search_text != None and search_text != "":
-        Search.objects.create(user=user, search_string=search_string)
+        Search.objects.create(user=user, search_text=search_text)
 
         '''
         event_list is all events that are valid.
@@ -179,7 +185,7 @@ def all_events(request):
 
         Search priority order: Genre, Artist, Other information
         '''
-        all_events = Event.objects.filter(is_active=True, is_accepted=True, is_hidden=False)
+        all_events = Event.objects.filter(is_active=True, is_confirmed=True, is_hidden=False)
 
         #The code below sorts all events.
         try:
@@ -194,7 +200,7 @@ def all_events(request):
         except Artist.DoesNotExist:
             artist_events = Event.objects.none()
 
-        other_info_events = event_list.filter(Q(name__icontains=search_text) | Q(city__icontains=search_text) | Q(city_district__icontains=search_text) | Q(location_name__icontains=search_text))
+        other_info_events = all_events.filter(Q(name__icontains=search_text) | Q(city__icontains=search_text) | Q(city_district__icontains=search_text) | Q(location_name__icontains=search_text))
 
         '''
         Merge all lists together in the order of priority.
@@ -265,7 +271,7 @@ def edit(request, id):
                     form = CreateEventForm(instance=event)
                     return render(request, 'create_event_page.html', context={'form': form, 'type': edit})
             else:
-                form = CreateFormEvent(instance=event)
+                form = CreateEventForm(instance=event)
                 return render(request, 'create_event_page.html', context={'form': form, 'type':'edit'})
         else:
             message = "You do not have access to this event."
@@ -294,7 +300,7 @@ def participants(request, id):
         message = "You are not logged in as an artist"
         return all_events(request)
 
-def hide_show():
+def hide_show(request, id):
     if functions.is_artist(request):
         try:
             event = Event.objects.get(pk=id)
@@ -306,13 +312,13 @@ def hide_show():
 
         if event in artists_events:
             if request.method == "POST":
-                action = request.POST.get("action")
+                action = request.POST.get("action_type")
                 if action == "show":
                     event.is_hidden = False
-                    message = 'Your event "%"s is now recovered and visible' % (event.name)
+                    message = 'Your event "%s" is now recovered and visible' % (event.name)
                 elif action == "hide":
                     event.is_hidden = True
-                    message = 'Your event "%"s is now hidden' % (event.name)
+                    message = 'Your event "%s" is now hidden' % (event.name)
 
                 event.save()
                 request.method = "GET"
@@ -333,15 +339,21 @@ def signup(request, id):
         try:
             event = Event.objects.get(pk=id)
         except:
-            message = 'That event does not exist anymore.'
+            messages.error(request, 'That event does not exist anymore.')
             return all_events(request)
 
         try:
-            Event.objects.get(event=event, user=request.user)
-            message = 'You have already signed up for this event'
+            Signup.objects.get(event=event, user=request.user)
+            messages.error(request, 'You have already signed up for this event')
             return single(request, id)
 
-        except Event.DoesNotExist:
+        except Signup.DoesNotExist:
+            Signup.objects.create(event=event, user=request.user)
+            messages.success(request, 'You have successfully signed up for this event')
+            is_signed_up = True
+            user = request.user
+            return render(request, 'single_event_page.html', context={'event': event, 'user': user, 'is_signed_up': is_signed_up})
+
             '''
             Keep working on this later
             '''

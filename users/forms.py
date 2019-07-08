@@ -4,18 +4,18 @@ from django.db import models
 from django.utils.safestring import mark_safe
 from django import forms
 from allauth.account.forms import SignupForm
-from django.forms import TextInput, Select, Textarea, RadioSelect, CheckboxInput, NumberInput, CheckboxSelectMultiple
+from django.forms import TextInput, Select, Textarea, RadioSelect, NumberInput
 from django.core.files.images import get_image_dimensions
 from django.utils.translation import gettext as _
 import q1.functions as functions
 import re
 
 
-class CheckboxSelectMultiple(CheckboxSelectMultiple):
+class RadioSelect(RadioSelect):
     def render(self, *args, **kwargs):
-        output = super(CheckboxSelectMultiple, self).render(*args, **kwargs)
+        output = super(RadioSelect, self).render(*args, **kwargs)
         output = output.replace(u'<li>', u'')
-        output = output.replace(u'</li>', u'')
+        output = output.replace(u'</li>', u'<br />')
         return mark_safe(output.replace(u'<ul id="id_hobbies">', u''))
 
 class ArtistSignUpForm(SignupForm):
@@ -36,8 +36,9 @@ class ArtistForm(ModelForm):
     honeypot = forms.CharField(required=False,widget=forms.HiddenInput)
     class Meta:
         model = Artist
-        fields = ['genres', 'profile_picture', 'first_name', 'last_name', 'city', 'city_district', 'description']
+        fields = ['profile_picture', 'name', 'genres', 'first_name', 'last_name', 'city', 'city_district', 'description']
         widgets = {
+            'name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Name'}),
             'first_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Förnamn'}),
             'last_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Efternamn'}),
             'genres': RadioSelect(),

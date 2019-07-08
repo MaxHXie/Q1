@@ -25,7 +25,7 @@
                 {% if genre %}
                     <div class="text-center">
                         {% if artists_for_genre|length == 0 %}
-                            <a href="{% url 'all_events' %}?search_genre_event={{ genre.genre_name }}" class="btn btn-primary btn-round btn-lg" style="color:white; background-color:rgb(130, 130, 130);" disabled>{% trans 'Det finns inga aktiva instruktörer för' %} {{ genre.genre_name }}</a>
+                            <a href="{% url 'all_events' %}?search={{ genre.genre_name }}" class="btn btn-primary btn-round btn-lg" style="color:white; background-color:rgb(130, 130, 130);" disabled>{% trans 'Det finns inga aktiva instruktörer för' %} {{ genre.genre_name }}</a>
                         {% else %}
                             <a href="{% url 'artists' genre.genre_name %}" class="btn btn-primary btn-round btn-lg" style="color:white; background-color:#2CA8FF;"><strong>Se alla instruktörer för {{ genre.genre_name }} ({{ artists_for_genre|length }})</strong></a>
                         {% endif %}
@@ -35,15 +35,9 @@
                     <div class="card-body">
                         <div class="input-group form-group-no-border">
                             <span class="input-group-addon">
-                                <i class="now-ui-icons location_pin"></i>
-                            </span>
-                            <input type="text" class="form-control" id="input_zip_code" name="input_zip_code" value="{% if input_zip_code %}{{ input_zip_code }}{% endif %}" placeholder="Skriv in ditt postnummer för att hitta evenemang i närheten...">
-                        </div>
-                        <div class="input-group form-group-no-border">
-                            <span class="input-group-addon">
                                 <i class="now-ui-icons ui-1_zoom-bold"></i>
                             </span>
-                            <input type="text" class="form-control" id="search_genre_event" name="search_genre_event" value="{% if search_genre_event %}{{ search_genre_event }}{% endif %}" onkeyup="scroll_alt()" placeholder="Sök efter ett evenemang här...">
+                            <input type="text" class="form-control" id="search" name="search" value="{% if search_text %}{{ search_text }}{% endif %}" onkeyup="scroll_alt()" placeholder="Sök efter ett evenemang här...">
                         </div>
                         <input type="submit" class="btn btn-primary" value="Sök">
                     </div>

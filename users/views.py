@@ -6,7 +6,7 @@ import q1.functions as functions
 from django.contrib import messages
 from events.views import index
 from django.contrib.auth.models import User
-from .models import Artist, Fan
+from .models import Artist, Fan, Genre
 
 # Create your views here.
 class ArtistSignUp(SignupView):
@@ -144,11 +144,11 @@ def profile_id(request, id):
         return render(request, 'profile_page.html')
 
     if functions.profile_type(user) == "artist":
-        genre_list = Genre.objects.filter(artist=profile)
+        genre = Genre.objects.get(artist=profile)
     else:
-        genre_list = []
+        genre = []
 
-    return render(request, 'profile_page.html', context={'genre_list': genre_list, 'profile':profile, 'user':user})
+    return render(request, 'profile_page.html', context={'genre': genre, 'profile':profile, 'user':user})
 
 
 def edit_profile(request):

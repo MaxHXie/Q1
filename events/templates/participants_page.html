@@ -17,16 +17,16 @@
         <div class="section section-contact-us section-javascript" id="javascriptComponents">
             <div class="container">
                 <h2 class="title text">
-                    {% if this_event.is_active == False %}
+                    {% if event.is_active == False %}
                         [EJ AKTIV]
-                    {% elif this_event.is_accepted == False %}
+                    {% elif event.is_confirmed == False %}
                         [EJ PUBLICERAD]
-                    {% elif this_event.is_hidden == True %}
+                    {% elif event.is_hidden == True %}
                         [LÅST]
-                    {% elif this_event.has_happened == True %}
+                    {% elif event.has_happened == True %}
                         [PASSERAT]
                     {% endif %}
-                    <a href="{% url 'single_event' this_event.id  %}">{{ this_event.event_name }}</a>
+                    <a href="{% url 'single' event.id  %}">{{ event.event_name }}</a>
                 </h2>
                 <div class="table-responsive">
                     <table class="table">
@@ -34,9 +34,9 @@
                             <tr><th>Namn</th><th>Telefonnummer</th><th>Email adress</th><th><a href="" class="btn btn-primary btn-block btn-sm" style="margin:0; background-color:#2CA8FF;">Mejla alla</a></th></tr>
                         </thead>
                         <tbody>
-                            {% for signup in this_event.hobbyeventsignup_set.all %}
+                            {% for signup in event.signup_set.all %}
                                 {% if signup.is_success == True and signup.is_removed == False %}
-                                    <tr><td><a href="{% url 'profile_with_user' signup.user.id %}">{{ signup.first_name }} {{signup.last_name}}</a></td><td>{{ signup.telephone }}</td><td>{{ signup.email }}</td><td>{% if signup.email != None %}<a href="" class="btn btn-primary btn-block btn-sm" style="margin:0; background-color:#2CA8FF;"><i class="now-ui-icons ui-1_email-85"></i></a>{% endif %}</td></tr>
+                                    <tr><td><a href="{% url 'profile_id' signup.user.id %}">{{ signup.first_name }} {{signup.last_name}}</a></td><td>{{ signup.telephone }}</td><td>{{ signup.email }}</td><td>{% if signup.email != None %}<a href="" class="btn btn-primary btn-block btn-sm" style="margin:0; background-color:#2CA8FF;"><i class="now-ui-icons ui-1_email-85"></i></a>{% endif %}</td></tr>
                                 {% endif %}
                             {% endfor %}
                         </tbody>

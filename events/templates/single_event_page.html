@@ -58,7 +58,7 @@
                 </div>
             </div>
 
-            {% if this_user != event.artist.user %}
+            {% if user != event.artist.user %}
                 <div class="section section-contact-us text-center">
                     <div class="container">
                         <div class="button-container">
@@ -72,12 +72,12 @@
                         <h2 class="title">Skriv upp dig på deltagarlistan!</h2>
                         <div class="row">
                             <div class="col-lg-6 text-center col-md-8 ml-auto mr-auto">
-                                {% if this_user.fan or this_user.artist %}
+                                {% if user.fan or user.artist %}
                                     {% if signed_up %}
                                         <p class="description">Du är anmäld till det här evenemanget</p>
                                         <button type="submit" class="btn btn-primary btn-round btn-block btn-lg" style="background-color:gray;" disabled>Du är anmäld</button>
                                     {% else %}
-                                        <form action="{% url 'signup_for_event' event.id %}" method="POST">
+                                        <form action="{% url 'signup' event.id %}" method="POST">
                                             {% csrf_token %}
                                             <div class="send-button">
                                                 <input type="submit" class="btn btn-primary btn-round btn-block btn-lg" value="Anmäl dig" style="background-color:#2CA8FF;">
@@ -95,7 +95,7 @@
             {% endif %}
             <div class="section">
                 <div class="container text-center">
-                    {% if this_user == event.artist.user %}
+                    {% if user == event.artist.user %}
                         <div class="button-container">
                             <a href="{% url 'participants' event.id %}" class="btn btn-primary btn-round btn-lg">Se lista på anmälda</a>
                             {% if event.is_hidden == False %}

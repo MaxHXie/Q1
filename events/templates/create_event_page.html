@@ -32,7 +32,7 @@
                             {% if input_type == 'text' or input_type == 'number' %}
 
                                 <div id="inputs">
-                                    {% if field.name == 'event_name' %}
+                                    {% if field.name == 'name' %}
                                         <div><strong>Namnet på evenemanget</strong></div>
                                     {% elif field.name == 'datetime' %}
                                         <div><strong>Datum och tid (yyyy-mm-dd hh:mm)</strong></div>
@@ -42,8 +42,6 @@
                                         <div><strong>Kommun</strong></div>
                                     {% elif field.name == 'address' %}
                                         <div><strong>Adress</strong></div>
-                                    {% elif field.name == 'zip_code' %}
-                                        <div><strong>Postnummer</strong></div>
                                     {% elif field.name == 'location_name' %}
                                         <div><strong>Namn på platsen (Om det finns något)</strong></div>
                                     {% elif field.name == 'price' %}
@@ -63,7 +61,7 @@
                                     {% else %}
                                         <div class="input-group input-lg">
                                             <span class="input-group-addon">
-                                                {% if field.name == 'event_name' %}
+                                                {% if field.name == 'name' %}
                                                     <i class="now-ui-icons ui-1_send"></i>
                                                 {% elif field.name == 'datetime' %}
                                                     <i class="now-ui-icons ui-1_calendar-60"></i>

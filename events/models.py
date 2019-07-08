@@ -14,14 +14,14 @@ class Event(models.Model):
         on_delete = models.CASCADE
     )
 
-    name = models.CharField(max_length=128)
-    datetime = models.DateTimeField()
-    city = models.CharField(max_length=64)
-    city_district = models.CharField(max_length=64)
-    address = models.CharField(max_length=64)
-    location_name = models.CharField(max_length=64)
+    name = models.CharField(max_length=128, blank=True)
+    datetime = models.DateTimeField(null=True)
+    city = models.CharField(max_length=64, blank=True)
+    city_district = models.CharField(max_length=64, blank=True)
+    address = models.CharField(max_length=64, blank=True)
+    location_name = models.CharField(max_length=64, blank=True)
     price = models.PositiveIntegerField(default=0)
-    description = models.TextField(max_length=2048)
+    description = models.TextField(max_length=2048, blank=True)
     is_active = models.BooleanField(default=False)
     is_confirmed = models.BooleanField(default=False)
     is_hidden = models.BooleanField(default=False)
@@ -62,6 +62,11 @@ class Signup(models.Model):
         return "%s %s signed up to %s" % (self.first_name, self.last_name, self.event.name)
 
 class Search(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete = models.CASCADE,
+        null = True
+    )
     search_text = models.CharField(max_length=128)
     datetime = models.DateTimeField(auto_now_add=True)
 
