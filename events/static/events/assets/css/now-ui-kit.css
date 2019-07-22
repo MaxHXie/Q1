@@ -96,7 +96,7 @@
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-brown,
 .bootstrap-switch .bootstrap-switch-handle-off.bootstrap-switch-brown {
     color: #fff;
-    background: #f96332;
+    background: #203535;
 }
 
 .bootstrap-switch .bootstrap-switch-handle-on.bootstrap-switch-blue,
@@ -271,7 +271,7 @@
 }
 
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-brown~.bootstrap-switch-default {
-    background-color: #f96332;
+    background-color: #203535;
 }
 
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-blue~.bootstrap-switch-default {
@@ -615,7 +615,7 @@
 
 .slider.slider-primary .noUi-connect,
 .slider.slider-primary.noUi-connect {
-    background-color: #f96332;
+    background-color: #203535;
 }
 
 .slider.slider-primary.noUi-target {
@@ -623,7 +623,7 @@
 }
 
 .slider.slider-primary .noUi-handle {
-    background-color: #f96332;
+    background-color: #203535;
 }
 
 .slider.slider-info .noUi-connect,
@@ -1877,14 +1877,14 @@ select.selectpicker {
 }
 
 .bootstrap-tagsinput.form-control input::-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
 }
 
 .bootstrap-tagsinput.form-control input:-ms-input-placeholder,
 .bootstrap-tagsinput.form-control input::-webkit-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
 }
 
@@ -1904,7 +1904,7 @@ select.selectpicker {
 }
 
 .bootstrap-tagsinput .tag.tag-primary {
-    background-color: #f96332;
+    background-color: #203535;
     color: #FFFFFF;
     border: none;
 }
@@ -1914,7 +1914,7 @@ select.selectpicker {
 }
 
 .bootstrap-tagsinput .tag.tag-primary .tagsinput-add {
-    color: #f96332;
+    color: #203535;
 }
 
 .bootstrap-tagsinput .tag.tag-info {
@@ -2261,7 +2261,7 @@ select.selectpicker {
 
 .bootstrap-datetimepicker-widget a[data-action="togglePicker"],
 .bootstrap-datetimepicker-widget a[data-action="togglePicker"]:hover {
-    color: #f96332;
+    color: #203535;
 }
 
 .bootstrap-datetimepicker-widget a[data-action]:hover {
@@ -2286,7 +2286,7 @@ select.selectpicker {
 
 .bootstrap-datetimepicker-widget button[data-action] {
     width: 38px;
-    background-color: #f96332;
+    background-color: #203535;
     height: 38px;
     padding: 0;
     box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
@@ -2335,7 +2335,7 @@ select.selectpicker {
 .bootstrap-datetimepicker-widget .picker-switch {
     text-align: center;
     border-radius: 3px;
-    color: #f96332;
+    color: #203535;
 }
 
 .bootstrap-datetimepicker-widget .picker-switch::after {
@@ -2396,7 +2396,7 @@ select.selectpicker {
     font-size: 12px;
     border-radius: 50%;
     text-align: center;
-    color: #f96332;
+    color: #203535;
 }
 
 .bootstrap-datetimepicker-widget table th.prev::after {
@@ -2409,7 +2409,7 @@ select.selectpicker {
 
 .bootstrap-datetimepicker-widget table th.dow {
     text-align: center;
-    color: #f96332;
+    color: #203535;
     padding-bottom: 5px;
     padding-top: 10px;
 }
@@ -2479,7 +2479,7 @@ select.selectpicker {
 
 .bootstrap-datetimepicker-widget table td.active>div,
 .bootstrap-datetimepicker-widget table td.active:hover>div {
-    background-color: #f96332;
+    background-color: #203535;
     color: #FFFFFF;
     box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
 }
@@ -2511,7 +2511,7 @@ select.selectpicker {
 }
 
 .bootstrap-datetimepicker-widget table td span.active {
-    background-color: #f96332;
+    background-color: #203535;
     color: #FFFFFF;
 }
 
@@ -2599,16 +2599,16 @@ input.datetimepicker[data-color]+.bootstrap-datetimepicker-widget table thead tr
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-input.datetimepicker[data-color="orange"]+.bootstrap-datetimepicker-widget {
-    background-color: #f96332;
+input.datetimepicker[data-color="slategray"]+.bootstrap-datetimepicker-widget {
+    background-color: #203535;
 }
 
-input.datetimepicker[data-color="orange"]+.bootstrap-datetimepicker-widget table td.active>div,
-input.datetimepicker[data-color="orange"]+.bootstrap-datetimepicker-widget table td.active:hover>div,
-input.datetimepicker[data-color="orange"]+.bootstrap-datetimepicker-widget button[data-action],
-input.datetimepicker[data-color="orange"]+.bootstrap-datetimepicker-widget.dropdown-menu.top:after,
-input.datetimepicker[data-color="orange"]+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:before {
-    color: #f96332;
+input.datetimepicker[data-color="slategray"]+.bootstrap-datetimepicker-widget table td.active>div,
+input.datetimepicker[data-color="slategray"]+.bootstrap-datetimepicker-widget table td.active:hover>div,
+input.datetimepicker[data-color="slategray"]+.bootstrap-datetimepicker-widget button[data-action],
+input.datetimepicker[data-color="slategray"]+.bootstrap-datetimepicker-widget.dropdown-menu.top:after,
+input.datetimepicker[data-color="slategray"]+.bootstrap-datetimepicker-widget.dropdown-menu.bottom:before {
+    color: #203535;
 }
 
 input.datetimepicker[data-color="blue"]+.bootstrap-datetimepicker-widget {
@@ -3466,7 +3466,7 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 }
 
 .btn-primary {
-    background-color: #f96332;
+    background-color: #203535;
     color: #FFFFFF;
     font-weight: bold;
 }
@@ -3515,13 +3515,13 @@ fieldset[disabled] .btn-primary:focus,
 fieldset[disabled] .btn-primary.focus,
 fieldset[disabled] .btn-primary:active,
 fieldset[disabled] .btn-primary.active {
-    background-color: #f96332;
-    border-color: #f96332;
+    background-color: #203535;
+    border-color: #203535;
 }
 
 .btn-primary.btn-simple {
-    color: #f96332;
-    border-color: #f96332;
+    color: #203535;
+    border-color: #203535;
 }
 
 .btn-primary.btn-simple:hover,
@@ -3534,7 +3534,7 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .btn-primary.btn-link {
-    color: #f96332;
+    color: #203535;
 }
 
 .btn-primary.btn-link:hover,
@@ -3868,7 +3868,7 @@ fieldset[disabled] .btn-danger.active {
 
 .btn-neutral {
     background-color: #FFFFFF;
-    color: #f96332;
+    color: #203535;
 }
 
 .btn-neutral:hover,
@@ -4141,28 +4141,28 @@ fieldset[disabled] .btn-link.active {
 }
 
 .form-control::-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .form-control:-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .form-control::-webkit-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .form-control:-ms-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
@@ -4190,7 +4190,7 @@ fieldset[disabled] .btn-link.active {
 }
 
 .form-control:focus {
-    border: 1px solid #f96332;
+    border: 1px solid #203535;
     -webkit-box-shadow: none;
     box-shadow: none;
     outline: 0 !important;
@@ -4200,7 +4200,7 @@ fieldset[disabled] .btn-link.active {
 
 .form-control:focus+.input-group-addon,
 .form-control:focus~.input-group-addon {
-    border: 1px solid #f96332;
+    border: 1px solid #203535;
     border-left: none;
     background-color: transparent;
 }
@@ -4431,7 +4431,7 @@ fieldset[disabled] .btn-link.active {
 
 .input-group-focus .input-group-addon {
     background-color: #FFFFFF;
-    border-color: #f96332;
+    border-color: #203535;
 }
 
 .input-group-focus.form-group-no-border .input-group-addon {
@@ -4495,7 +4495,7 @@ textarea.form-control {
 
 textarea.form-control:focus,
 textarea.form-control:active {
-    border: 1px solid #f96332;
+    border: 1px solid #203535;
     border-radius:10px;
 }
 
@@ -4712,12 +4712,12 @@ textarea.form-control:active {
 }
 
 .progress-container.progress-primary .progress-bar {
-    background: #f96332;
+    background: #203535;
 }
 
 .progress-container.progress-primary .progress-value,
 .progress-container.progress-primary .progress-badge {
-    color: #f96332;
+    color: #203535;
 }
 
 .progress-container.progress-info .progress {
@@ -4802,8 +4802,8 @@ textarea.form-control:active {
 }
 
 .badge-primary {
-    border-color: #f96332;
-    background-color: #f96332;
+    border-color: #203535;
+    background-color: #203535;
 }
 
 .badge-info {
@@ -4907,8 +4907,8 @@ textarea.form-control:active {
 .pagination.pagination-primary .page-item.active>.page-link,
 .pagination.pagination-primary .page-item.active>.page-link:focus,
 .pagination.pagination-primary .page-item.active>.page-link:hover {
-    background-color: #f96332;
-    border-color: #f96332;
+    background-color: #203535;
+    border-color: #203535;
 }
 
 .pagination.pagination-warning .page-item.active>.page-link,
@@ -4940,7 +4940,7 @@ textarea.form-control:active {
 .pagination.pagination-neutral .page-item.active>.page-link:hover {
     background-color: #FFFFFF;
     border-color: #FFFFFF;
-    color: #f96332;
+    color: #203535;
 }
 
 .pagination-container {
@@ -4970,12 +4970,12 @@ small {
 }
 
 a {
-    color: #f96332;
+    color: #203535;
 }
 
 a:hover,
 a:focus {
-    color: #f96332;
+    color: #203535;
 }
 
 h1,
@@ -5078,7 +5078,7 @@ p {
 }
 
 .text-primary {
-    color: #f96332 !important;
+    color: #203535 !important;
 }
 
 .text-info {
@@ -5116,12 +5116,12 @@ p {
 }
 
 .blockquote.blockquote-primary {
-    border-color: #f96332;
-    color: #f96332;
+    border-color: #203535;
+    color: #203535;
 }
 
 .blockquote.blockquote-primary small {
-    color: #f96332;
+    color: #203535;
 }
 
 .blockquote.blockquote-danger {
@@ -5215,7 +5215,7 @@ body {
 }
 
 .separator-line.separator-primary {
-    background-color: #f96332;
+    background-color: #203535;
 }
 
 .section-space {
@@ -5292,13 +5292,13 @@ body {
 .nav-pills.nav-pills-neutral .nav-item .nav-link.active:focus,
 .nav-pills.nav-pills-neutral .nav-item .nav-link.active:hover {
     background-color: #FFFFFF;
-    color: #f96332;
+    color: #203535;
 }
 
 .nav-pills.nav-pills-primary .nav-item .nav-link.active,
 .nav-pills.nav-pills-primary .nav-item .nav-link.active:focus,
 .nav-pills.nav-pills-primary .nav-item .nav-link.active:hover {
-    background-color: #f96332;
+    background-color: #203535;
 }
 
 .nav-pills.nav-pills-info .nav-item .nav-link.active,
@@ -5395,7 +5395,7 @@ body {
 }
 
 .nav-tabs.nav-tabs-primary>.nav-item>.nav-link.active {
-    background-color: #f96332;
+    background-color: #203535;
 }
 
 .nav-tabs.nav-tabs-info>.nav-item>.nav-link.active {
@@ -5591,7 +5591,7 @@ body {
 }
 
 .bg-primary {
-    background-color: #f96332 !important;
+    background-color: #203535 !important;
 }
 
 .bg-info {
@@ -6073,7 +6073,7 @@ img {
 }
 
 .popover.popover-primary {
-    background-color: #f96332;
+    background-color: #203535;
 }
 
 .popover.popover-primary .popover-body {
@@ -6081,19 +6081,19 @@ img {
 }
 
 .popover.popover-primary.bs-popover-right .arrow:after {
-    border-right-color: #f96332;
+    border-right-color: #203535;
 }
 
 .popover.popover-primary.bs-popover-top .arrow:after {
-    border-top-color: #f96332;
+    border-top-color: #203535;
 }
 
 .popover.popover-primary.bs-popover-bottom .arrow:after {
-    border-bottom-color: #f96332;
+    border-bottom-color: #203535;
 }
 
 .popover.popover-primary.bs-popover-left .arrow:after {
-    border-left-color: #f96332;
+    border-left-color: #203535;
 }
 
 .popover.popover-primary .popover-header {
@@ -6957,7 +6957,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .info.info-hover:hover .icon.icon-primary+.info-title {
-    color: #f96332;
+    color: #203535;
 }
 
 .info.info-hover:hover .icon.icon-success+.info-title {
@@ -7035,7 +7035,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .icon.icon-primary {
-    color: #f96332;
+    color: #203535;
 }
 
 .icon.icon-primary.icon-circle {
@@ -7228,7 +7228,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .modal.modal-mini .modal-profile i {
-    color: #f96332;
+    color: #203535;
     font-size: 21px;
 }
 
@@ -7237,7 +7237,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .modal.modal-mini .modal-profile.modal-profile-primary {
-    background-color: #f96332;
+    background-color: #203535;
 }
 
 .modal.modal-mini .modal-profile.modal-profile-danger {
@@ -7276,28 +7276,28 @@ Created using IcoMoon - icomoon.io
 }
 
 .modal.modal-default .form-control::-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-default .form-control:-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-default .form-control::-webkit-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-default .form-control:-ms-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
@@ -7392,7 +7392,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .modal.modal-primary .modal-content {
-    background-color: #f96332;
+    background-color: #203535;
     color: #FFFFFF;
 }
 
@@ -7401,28 +7401,28 @@ Created using IcoMoon - icomoon.io
 }
 
 .modal.modal-primary .form-control::-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-primary .form-control:-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-primary .form-control::-webkit-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-primary .form-control:-ms-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
@@ -7526,28 +7526,28 @@ Created using IcoMoon - icomoon.io
 }
 
 .modal.modal-danger .form-control::-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-danger .form-control:-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-danger .form-control::-webkit-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-danger .form-control:-ms-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
@@ -7651,28 +7651,28 @@ Created using IcoMoon - icomoon.io
 }
 
 .modal.modal-warning .form-control::-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-warning .form-control:-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-warning .form-control::-webkit-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-warning .form-control:-ms-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
@@ -7776,28 +7776,28 @@ Created using IcoMoon - icomoon.io
 }
 
 .modal.modal-success .form-control::-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-success .form-control:-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-success .form-control::-webkit-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-success .form-control:-ms-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
@@ -7901,28 +7901,28 @@ Created using IcoMoon - icomoon.io
 }
 
 .modal.modal-info .form-control::-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-info .form-control:-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-info .form-control::-webkit-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .modal.modal-info .form-control:-ms-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
@@ -8056,8 +8056,7 @@ Created using IcoMoon - icomoon.io
     position: relative;
     width: 100%;
     margin-bottom: 30px;
-    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
-}
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);}
 
 .card .author .avatar {
     width: 30px;
@@ -8145,7 +8144,7 @@ Created using IcoMoon - icomoon.io
 .card-collapse .card .card-header a[data-toggle="collapse"] i {
     float: right;
     position: relative;
-    color: #f96332;
+    color: #203535;
     top: 1px;
     -webkit-transition: all 300ms ease 0s;
     -moz-transition: all 300ms ease 0s;
@@ -8194,8 +8193,8 @@ Created using IcoMoon - icomoon.io
     line-height: 1.25em;
 }
 
-.card[data-background-color="orange"] {
-    background-color: #f96332;
+.card[data-background-color="slategray"] {
+    background-color: #203535;
 }
 
 .card[data-background-color="red"] {
@@ -8212,6 +8211,11 @@ Created using IcoMoon - icomoon.io
 
 .card[data-background-color="green"] {
     background-color: #15b60d;
+}
+
+.card-round-raised {
+  border-radius: 0.8rem;
+  box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.5);
 }
 
 .card-raised {
@@ -8370,7 +8374,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .card-testimonial .icon.icon-primary i {
-    color: #f96332;
+    color: #203535;
 }
 
 .card-testimonial .icon.icon-info i {
@@ -8477,8 +8481,8 @@ Created using IcoMoon - icomoon.io
 }
 
 .card-pricing .icon.icon-primary i {
-    box-shadow: 0px 9px 30px -6px #f96332;
-    color: #f96332;
+    box-shadow: 0px 9px 30px -6px #203535;
+    color: #203535;
 }
 
 .card-pricing .icon.icon-info i {
@@ -8975,7 +8979,7 @@ Created using IcoMoon - icomoon.io
 }
 
 .ecommerce-page .card-refine .checkbox input[type=checkbox]:checked+.checkbox-material .check {
-    background: #f96332;
+    background: #203535;
 }
 
 .ecommerce-page .card-product .card-image {
@@ -9278,28 +9282,28 @@ Created using IcoMoon - icomoon.io
 }
 
 .login-page .card-login.card-plain .form-control::-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .login-page .card-login.card-plain .form-control:-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .login-page .card-login.card-plain .form-control::-webkit-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 .login-page .card-login.card-plain .form-control:-ms-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
@@ -9820,7 +9824,7 @@ Created using IcoMoon - icomoon.io
     top: 36%;
     left: 44%;
     font-size: 65px;
-    color: #f96332;
+    color: #203535;
     padding: 1px;
 }
 
@@ -10032,28 +10036,28 @@ Created using IcoMoon - icomoon.io
 }
 
 [data-background-color]:not([data-background-color="gray"]) .form-control::-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 [data-background-color]:not([data-background-color="gray"]) .form-control:-moz-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 [data-background-color]:not([data-background-color="gray"]) .form-control::-webkit-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
 }
 
 [data-background-color]:not([data-background-color="gray"]) .form-control:-ms-input-placeholder {
-    color: #6f6f6f;
+    color: #D3D3D3;
     font-weight: bold;
     opacity: 1;
     filter: alpha(opacity=100);
@@ -10891,12 +10895,12 @@ Created using IcoMoon - icomoon.io
         background: -moz-linear-gradient(#18ce0f 0%, #000 80%);
         background: linear-gradient(#18ce0f 0%, #000 80%);
     }
-    .navbar-collapse[data-color="orange"]:after {
-        background: #f96332;
-        background: -webkit-linear-gradient(#f96332 0%, #000 80%);
-        background: -o-linear-gradient(#f96332 0%, #000 80%);
-        background: -moz-linear-gradient(#f96332 0%, #000 80%);
-        background: linear-gradient(#f96332 0%, #000 80%);
+    .navbar-collapse[data-color="slategray"]:after {
+        background: #203535;
+        background: -webkit-linear-gradient(#203535 0%, #000 80%);
+        background: -o-linear-gradient(#203535 0%, #000 80%);
+        background: -moz-linear-gradient(#203535 0%, #000 80%);
+        background: linear-gradient(#203535 0%, #000 80%);
     }
     .navbar-collapse[data-color="red"]:after {
         background: #FF3636;
@@ -11464,12 +11468,12 @@ Created using IcoMoon - icomoon.io
         background: -moz-linear-gradient(#18ce0f 0%, #000 80%);
         background: linear-gradient(#18ce0f 0%, #000 80%);
     }
-    .burger-menu .navbar-collapse[data-color="orange"]:after {
-        background: #f96332;
-        background: -webkit-linear-gradient(#f96332 0%, #000 80%);
-        background: -o-linear-gradient(#f96332 0%, #000 80%);
-        background: -moz-linear-gradient(#f96332 0%, #000 80%);
-        background: linear-gradient(#f96332 0%, #000 80%);
+    .burger-menu .navbar-collapse[data-color="slategray"]:after {
+        background: #203535;
+        background: -webkit-linear-gradient(#203535 0%, #000 80%);
+        background: -o-linear-gradient(#203535 0%, #000 80%);
+        background: -moz-linear-gradient(#203535 0%, #000 80%);
+        background: linear-gradient(#203535 0%, #000 80%);
     }
     .burger-menu .navbar-collapse[data-color="red"]:after {
         background: #FF3636;

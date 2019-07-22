@@ -70,25 +70,25 @@ function search_key_press(e) {
 
     <div class="wrapper">
         <div class="page-header page-header-medium">
-            <div class="page-header-image" data-parallax="true" style="background-image: url('{% static 'events/assets/img/bg6.jpg' %}');"></div>
+            <div class="page-header-image" data-parallax="true" style="background-image: url('{% static 'events/assets/img/bg20.jpg' %}');"></div>
             <div class="container">
                 <div class="content-center">
                     <div class="row">
-                        <div class="card card-login" data-background-color="orange">
+                        <div class="card card-round-raised" data-background-color="slategray">
                             <form class="form" method="" action="{% url 'artists' %}">
                                 {% csrf_token %}
                                 <div class="header text-center justify-content-center">
-                                    <h4 class="title title-up"><label for="search-genre">Sök och kom igång med en genre!</label></h4>
+                                    <h4 class="title title-up"><label for="search-genre">Sök efter din favoritgenre eller artist</label></h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="input-group form-group-no-border">
                                         <span class="input-group-addon">
                                             <i class="now-ui-icons ui-1_zoom-bold"></i>
                                         </span>
-                                        <input type="text" class="form-control" id="search-genre" onkeyup="scroll_alt()" onkeypress="search_key_press(event)" placeholder="Sök här eller scrolla ned för mer...">
+                                        <input type="text" class="form-control" id="search-genre" onkeyup="scroll_alt()" onkeypress="search_key_press(event)" placeholder="Ex. Pop, Rock eller A$AP Rocky">
                                     </div>
                                     <ul id="search-list">
-                                        <li id="immune"><a href="{% url 'all_events' %}" style="color:#2CA8FF;">Klicka här för att komma igång snabbt</a></li>
+                                        <a href="{% url 'all_events' %}" class="btn btn-neutral btn-lg" role="button" aria-disabled="false">Hitta evenemang</a>
                                     {% if genres != None %}
                                         {% for genre in genres %}
                                             <li><a href="{% url 'all_events' %}?search={{ genre.name }}" style="color:#3f3f3f">{{ genre.name|title }}</a></li>
@@ -142,11 +142,8 @@ function search_key_press(e) {
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 ml-auto mr-auto text-center">
-                        <h2 class="title">We help you get the funding you need to fulfill your Music dreams.</h2>
-                        <h5 class="description"><strong>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. </strong></h5>
-                        <h2 class="title">Q1 = smooth</h2>
-                        <h5 class=description><strong><a href="{{ HTTP_HOST }}/#our-offerings">Something important</a> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. </strong></h5>
-                        <p>
+                        <h2 class="title">The artists you dream of.</h2>
+                        <h5 class="description"><strong>Crowdfund your favourite artists to see them at a venue near you!</strong></h5>
                     </div>
                 </div>
                 <div class="separator separator-primary"></div>
