@@ -119,7 +119,7 @@ def profile_id(request, id):
         status = functions.user_status(request)
         if status == 'not valid':
             request.method = "GET"
-            message = 'There is still information missing about you.'
+            messages.error(request, 'There is still information missing about you.')
             return edit_profile(request)
         elif status == 'not active':
             messages.error(request, 'Your account has not been activated')
@@ -144,13 +144,13 @@ def profile_id(request, id):
     elif functions.is_fan(request):
         profile = Fan.objects.get(user=user)
     else:
-        message = 'This profile no longer exists.'
+        messages.error(request, 'This profile no longer exists.')
         return render(request, 'profile_page.html')
 
     followers = len(Follow.objects.filter(artist=profile))
 
     if profile.is_active == False:
-        message = 'This profile is no longer active'
+        messages.error(request, 'This profile is no longer active')
         return render(request, 'profile_page.html')
 
     if functions.profile_type(user) == "artist":
