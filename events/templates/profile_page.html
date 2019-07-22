@@ -48,10 +48,10 @@
 
 
         {% if genre and this_user != profile.user and profile.user.artist %}
-        <div class="section section-contact-us text-center">
+        <div class="sidewise section section-contact-us text-center">
 	  <!-- Boost begin -->
 	  <div class="container">
-                  {% if this_user != profile.user %}
+      {% if this_user != profile.user %}
 		  {% include "boost_button.html" %}
 	  </div>
   	  <!-- Boost end -->
