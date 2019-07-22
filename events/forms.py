@@ -39,7 +39,7 @@ class CreateEventForm(ModelForm):
         model = Event
         fields = ['name', 'datetime', 'city', 'city_district', 'address', 'location_name', 'price', 'description']
         widgets = {
-            'event_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Namnet på evenemanget...'}),
+            'name': TextInput(attrs={'class': 'form-control', 'placeholder': 'Name of the event...'}),
             'city': TextInput(attrs={'class': 'form-control', 'placeholder': 'Stad... ex. Stockholm, Göteborg...'}),
             'city_district': TextInput(attrs={'class': 'form-control', 'placeholder': 'Kommun: ex. Sollentuna, Täby...'}),
             'address': TextInput(attrs={'class': 'form-control', 'placeholder': 'Address...'}),
@@ -48,7 +48,7 @@ class CreateEventForm(ModelForm):
             'description': Textarea(attrs={'class': 'form-control', 'placeholder': 'Kort beskrivning om evenemanget', 'rows':20}),
         }
         error_messages = {
-            'event_name': {
+            'name': {
                 'required': _('Du måste fylla i namnet på evenemanget'),
                 'max_length': _('Texten du skrev in här var för långt'),
             },
@@ -76,13 +76,13 @@ class CreateEventForm(ModelForm):
             }
         }
 
-    def clean_event_name(self):
-        event_name = self.cleaned_data['event_name']
-        if event_name:
-            if not re.match(r'^[a-zA-ZåäöÅÄÖØ1234567890 ]*$', event_name):
-                raise forms.ValidationError(("Du har använt ogiltiga tecken i det här fältet"), code="invalid_event_name")
+    def clean_name(self):
+        name = self.cleaned_data['name']
+        if name:
+            if not re.match(r'^[a-zA-ZåäöÅÄÖØ1234567890 ]*$', name):
+                raise forms.ValidationError(("Du har använt ogiltiga tecken i det här fältet"), code="invalid_name")
             else:
-                return event_name
+                return name
 
     def clean_city(self):
         city = self.cleaned_data['city']

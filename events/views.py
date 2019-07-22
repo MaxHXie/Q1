@@ -43,7 +43,7 @@ def index(request):
 def create(request):
     if functions.is_artist(request):
         status = functions.user_status(request)
-        if status == "not complete":
+        if status == "not valid":
             request.method = "GET"
             message = "Your profile is not complete, you need to fill in more information."
             return edit_profile(request)
@@ -61,8 +61,8 @@ def create(request):
                 is_confirmed = False,
                 is_hidden = False,
                 red = color[0],
-                green = color[0],
-                blue = color[0]
+                green = color[1],
+                blue = color[2]
             )
             form = CreateEventForm(request.POST, instance=event)
             if form.is_valid():
