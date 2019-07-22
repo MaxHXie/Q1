@@ -1,0 +1,2740 @@
+[
+{
+    "model": "users.genre",
+    "pk": 1,
+    "fields": {
+        "name": "rock"
+    }
+},
+{
+    "model": "users.genre",
+    "pk": 2,
+    "fields": {
+        "name": "pop"
+    }
+},
+{
+    "model": "users.genre",
+    "pk": 3,
+    "fields": {
+        "name": "dansband"
+    }
+},
+{
+    "model": "users.genre",
+    "pk": 4,
+    "fields": {
+        "name": "schlager"
+    }
+},
+{
+    "model": "events.event",
+    "pk": 1,
+    "fields": {
+        "artist": 1,
+        "genre": 1,
+        "name": "IngvasEvent",
+        "datetime": "2019-07-24T16:00:00Z",
+        "city": "Stockholm",
+        "city_district": "Norrmalm",
+        "address": "Normalmsgatan 123",
+        "location_name": "HyfsadLokalPub",
+        "price": 500,
+        "description": "Ingvas first event nagonsin. Kom kom Lorem ipsum osv",
+        "is_active": true,
+        "is_confirmed": true,
+        "is_hidden": false,
+        "red": 200,
+        "green": 150,
+        "blue": 100,
+        "time_created": "2019-07-02T16:00:10.192Z"
+    }
+},
+{
+    "model": "events.event",
+    "pk": 2,
+    "fields": {
+        "artist": 2,
+        "genre": 3,
+        "name": "LasseEvent1",
+        "datetime": "2019-07-22T09:00:00Z",
+        "city": "Stockholm",
+        "city_district": "S\u00f6dermalm",
+        "address": "Sodermalmsgatan 123",
+        "location_name": "Soderhak 14",
+        "price": 246,
+        "description": "Lars ska spela gitarr och dansa lite kl 8 lorem ipsum osv",
+        "is_active": true,
+        "is_confirmed": true,
+        "is_hidden": false,
+        "red": 100,
+        "green": 150,
+        "blue": 200,
+        "time_created": "2019-07-02T16:01:08.260Z"
+    }
+},
+{
+    "model": "events.event",
+    "pk": 3,
+    "fields": {
+        "artist": 3,
+        "genre": 4,
+        "name": "SchlagerKvall med Sven",
+        "datetime": "2019-07-27T16:35:00Z",
+        "city": "Stockholm",
+        "city_district": "Vasastan",
+        "address": "Vasastansgatan 15",
+        "location_name": "NiceLokalVasastan",
+        "price": 600,
+        "description": "Sven ska sjunga schlager i vasastan, hoppas ni koper biljetter annars sa kommer bara svens ex-fru och hennes nya man. Stod Sven genom att komma annars kommer han formodligen fa en till medalalderskris!!!!! :O",
+        "is_active": true,
+        "is_confirmed": true,
+        "is_hidden": false,
+        "red": 150,
+        "green": 200,
+        "blue": 150,
+        "time_created": "2019-07-02T16:03:40.776Z"
+    }
+},
+{
+    "model": "events.event",
+    "pk": 5,
+    "fields": {
+        "artist": 4,
+        "genre": 1,
+        "name": "Max f\u00f6delsedagskalas",
+        "datetime": "2019-10-08T09:59:00Z",
+        "city": "Stockholm",
+        "city_district": "Sollentuna",
+        "address": "Granv\u00e4gen 18C",
+        "location_name": "Sollentuna Kommunhus",
+        "price": 0,
+        "description": "Ingenting av v\u00e4rde egentligen hahaha",
+        "is_active": true,
+        "is_confirmed": true,
+        "is_hidden": false,
+        "red": 200,
+        "green": 150,
+        "blue": 150,
+        "time_created": "2019-07-08T10:26:55.652Z"
+    }
+},
+{
+    "model": "dashboard.userdashboardmodule",
+    "pk": 1,
+    "fields": {
+        "title": "Quick links",
+        "module": "jet.dashboard.modules.LinkList",
+        "app_label": null,
+        "user": 5,
+        "column": 0,
+        "order": 0,
+        "settings": "{\"draggable\": false, \"deletable\": false, \"collapsible\": false, \"layout\": \"inline\"}",
+        "children": "[{\"title\": \"Return to site\", \"url\": \"/\"}, {\"title\": \"Change password\", \"url\": \"/admin/password_change/\"}, {\"title\": \"Log out\", \"url\": \"/admin/logout/\"}]",
+        "collapsed": false
+    }
+},
+{
+    "model": "dashboard.userdashboardmodule",
+    "pk": 2,
+    "fields": {
+        "title": "Applications",
+        "module": "jet.dashboard.modules.AppList",
+        "app_label": null,
+        "user": 5,
+        "column": 1,
+        "order": 0,
+        "settings": "{\"models\": null, \"exclude\": [\"auth.*\"]}",
+        "children": "",
+        "collapsed": false
+    }
+},
+{
+    "model": "dashboard.userdashboardmodule",
+    "pk": 3,
+    "fields": {
+        "title": "Administration",
+        "module": "jet.dashboard.modules.AppList",
+        "app_label": null,
+        "user": 5,
+        "column": 2,
+        "order": 0,
+        "settings": "{\"models\": [\"auth.*\"], \"exclude\": null}",
+        "children": "",
+        "collapsed": false
+    }
+},
+{
+    "model": "dashboard.userdashboardmodule",
+    "pk": 4,
+    "fields": {
+        "title": "Recent Actions",
+        "module": "jet.dashboard.modules.RecentActions",
+        "app_label": null,
+        "user": 5,
+        "column": 0,
+        "order": 1,
+        "settings": "{\"limit\": 10, \"include_list\": null, \"exclude_list\": null, \"user\": null}",
+        "children": "",
+        "collapsed": false
+    }
+},
+{
+    "model": "dashboard.userdashboardmodule",
+    "pk": 5,
+    "fields": {
+        "title": "Latest Django News",
+        "module": "jet.dashboard.modules.Feed",
+        "app_label": null,
+        "user": 5,
+        "column": 1,
+        "order": 1,
+        "settings": "{\"feed_url\": \"http://www.djangoproject.com/rss/weblog/\", \"limit\": 5}",
+        "children": "",
+        "collapsed": false
+    }
+},
+{
+    "model": "dashboard.userdashboardmodule",
+    "pk": 6,
+    "fields": {
+        "title": "Support",
+        "module": "jet.dashboard.modules.LinkList",
+        "app_label": null,
+        "user": 5,
+        "column": 2,
+        "order": 1,
+        "settings": "{\"draggable\": true, \"deletable\": true, \"collapsible\": true, \"layout\": \"stacked\"}",
+        "children": "[{\"title\": \"Django documentation\", \"url\": \"http://docs.djangoproject.com/\", \"external\": true}, {\"title\": \"Django \\\"django-users\\\" mailing list\", \"url\": \"http://groups.google.com/group/django-users\", \"external\": true}, {\"title\": \"Django irc channel\", \"url\": \"irc://irc.freenode.net/django\", \"external\": true}]",
+        "collapsed": false
+    }
+},
+{
+    "model": "dashboard.userdashboardmodule",
+    "pk": 7,
+    "fields": {
+        "title": "Application models",
+        "module": "jet.dashboard.modules.ModelList",
+        "app_label": "users",
+        "user": 5,
+        "column": 0,
+        "order": 0,
+        "settings": "{\"models\": [\"users.*\"], \"exclude\": null}",
+        "children": "",
+        "collapsed": false
+    }
+},
+{
+    "model": "dashboard.userdashboardmodule",
+    "pk": 8,
+    "fields": {
+        "title": "Recent Actions",
+        "module": "jet.dashboard.modules.RecentActions",
+        "app_label": "users",
+        "user": 5,
+        "column": 1,
+        "order": 0,
+        "settings": "{\"limit\": 10, \"include_list\": [\"users.*\"], \"exclude_list\": null, \"user\": null}",
+        "children": "",
+        "collapsed": false
+    }
+},
+{
+    "model": "sites.site",
+    "pk": 1,
+    "fields": {
+        "domain": "example.com",
+        "name": "example.com"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 1,
+    "fields": {
+        "app_label": "users",
+        "model": "artist"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 2,
+    "fields": {
+        "app_label": "users",
+        "model": "genre"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 3,
+    "fields": {
+        "app_label": "users",
+        "model": "visit"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 4,
+    "fields": {
+        "app_label": "users",
+        "model": "fan"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 5,
+    "fields": {
+        "app_label": "users",
+        "model": "boost"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 6,
+    "fields": {
+        "app_label": "users",
+        "model": "follow"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 7,
+    "fields": {
+        "app_label": "events",
+        "model": "event"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 8,
+    "fields": {
+        "app_label": "events",
+        "model": "search"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
+    "fields": {
+        "app_label": "events",
+        "model": "signup"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 10,
+    "fields": {
+        "app_label": "jet",
+        "model": "bookmark"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 11,
+    "fields": {
+        "app_label": "jet",
+        "model": "pinnedapplication"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 12,
+    "fields": {
+        "app_label": "dashboard",
+        "model": "userdashboardmodule"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 13,
+    "fields": {
+        "app_label": "admin",
+        "model": "logentry"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 14,
+    "fields": {
+        "app_label": "auth",
+        "model": "permission"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 15,
+    "fields": {
+        "app_label": "auth",
+        "model": "group"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 16,
+    "fields": {
+        "app_label": "auth",
+        "model": "user"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 17,
+    "fields": {
+        "app_label": "sites",
+        "model": "site"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 18,
+    "fields": {
+        "app_label": "contenttypes",
+        "model": "contenttype"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 19,
+    "fields": {
+        "app_label": "sessions",
+        "model": "session"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 20,
+    "fields": {
+        "app_label": "account",
+        "model": "emailaddress"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 21,
+    "fields": {
+        "app_label": "account",
+        "model": "emailconfirmation"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 22,
+    "fields": {
+        "app_label": "socialaccount",
+        "model": "socialaccount"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 23,
+    "fields": {
+        "app_label": "socialaccount",
+        "model": "socialapp"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 24,
+    "fields": {
+        "app_label": "socialaccount",
+        "model": "socialtoken"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "ovzbsbrl4pubiyrsjsi8l3le3cxuppcj",
+    "fields": {
+        "session_data": "ZDRlZTA4MDkwN2ExMWJiNWExOGU3MWE5NTAzNDhhYjlkYjBjNDczNzp7Il9wYXNzd29yZF9yZXNldF9rZXkiOiI1N3UtYjJlMTNiNGUxOTA1OWE4OWM5YWEiLCJfYXV0aF91c2VyX2lkIjoiNiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImFsbGF1dGguYWNjb3VudC5hdXRoX2JhY2tlbmRzLkF1dGhlbnRpY2F0aW9uQmFja2VuZCIsIl9hdXRoX3VzZXJfaGFzaCI6ImZmZGZjOWE2MDAyODE0MmJhNDdjMjA2NjllMGUyZmExNTRiNmY4YTAiLCJfc2Vzc2lvbl9leHBpcnkiOjEyMDk2MDB9",
+        "expire_date": "2019-07-22T09:57:41.296Z"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 1,
+    "fields": {
+        "name": "Can add artist",
+        "content_type": 1,
+        "codename": "add_artist"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 2,
+    "fields": {
+        "name": "Can change artist",
+        "content_type": 1,
+        "codename": "change_artist"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 3,
+    "fields": {
+        "name": "Can delete artist",
+        "content_type": 1,
+        "codename": "delete_artist"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 4,
+    "fields": {
+        "name": "Can view artist",
+        "content_type": 1,
+        "codename": "view_artist"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 5,
+    "fields": {
+        "name": "Can add genre",
+        "content_type": 2,
+        "codename": "add_genre"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 6,
+    "fields": {
+        "name": "Can change genre",
+        "content_type": 2,
+        "codename": "change_genre"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 7,
+    "fields": {
+        "name": "Can delete genre",
+        "content_type": 2,
+        "codename": "delete_genre"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 8,
+    "fields": {
+        "name": "Can view genre",
+        "content_type": 2,
+        "codename": "view_genre"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 9,
+    "fields": {
+        "name": "Can add visit",
+        "content_type": 3,
+        "codename": "add_visit"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 10,
+    "fields": {
+        "name": "Can change visit",
+        "content_type": 3,
+        "codename": "change_visit"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 11,
+    "fields": {
+        "name": "Can delete visit",
+        "content_type": 3,
+        "codename": "delete_visit"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 12,
+    "fields": {
+        "name": "Can view visit",
+        "content_type": 3,
+        "codename": "view_visit"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 13,
+    "fields": {
+        "name": "Can add fan",
+        "content_type": 4,
+        "codename": "add_fan"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 14,
+    "fields": {
+        "name": "Can change fan",
+        "content_type": 4,
+        "codename": "change_fan"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 15,
+    "fields": {
+        "name": "Can delete fan",
+        "content_type": 4,
+        "codename": "delete_fan"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 16,
+    "fields": {
+        "name": "Can view fan",
+        "content_type": 4,
+        "codename": "view_fan"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 17,
+    "fields": {
+        "name": "Can add boost",
+        "content_type": 5,
+        "codename": "add_boost"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 18,
+    "fields": {
+        "name": "Can change boost",
+        "content_type": 5,
+        "codename": "change_boost"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 19,
+    "fields": {
+        "name": "Can delete boost",
+        "content_type": 5,
+        "codename": "delete_boost"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 20,
+    "fields": {
+        "name": "Can view boost",
+        "content_type": 5,
+        "codename": "view_boost"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 21,
+    "fields": {
+        "name": "Can add follow",
+        "content_type": 6,
+        "codename": "add_follow"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change follow",
+        "content_type": 6,
+        "codename": "change_follow"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete follow",
+        "content_type": 6,
+        "codename": "delete_follow"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view follow",
+        "content_type": 6,
+        "codename": "view_follow"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
+        "name": "Can add event",
+        "content_type": 7,
+        "codename": "add_event"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 26,
+    "fields": {
+        "name": "Can change event",
+        "content_type": 7,
+        "codename": "change_event"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 27,
+    "fields": {
+        "name": "Can delete event",
+        "content_type": 7,
+        "codename": "delete_event"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 28,
+    "fields": {
+        "name": "Can view event",
+        "content_type": 7,
+        "codename": "view_event"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 29,
+    "fields": {
+        "name": "Can add search",
+        "content_type": 8,
+        "codename": "add_search"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 30,
+    "fields": {
+        "name": "Can change search",
+        "content_type": 8,
+        "codename": "change_search"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 31,
+    "fields": {
+        "name": "Can delete search",
+        "content_type": 8,
+        "codename": "delete_search"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 32,
+    "fields": {
+        "name": "Can view search",
+        "content_type": 8,
+        "codename": "view_search"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 33,
+    "fields": {
+        "name": "Can add signup",
+        "content_type": 9,
+        "codename": "add_signup"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 34,
+    "fields": {
+        "name": "Can change signup",
+        "content_type": 9,
+        "codename": "change_signup"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 35,
+    "fields": {
+        "name": "Can delete signup",
+        "content_type": 9,
+        "codename": "delete_signup"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 36,
+    "fields": {
+        "name": "Can view signup",
+        "content_type": 9,
+        "codename": "view_signup"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 37,
+    "fields": {
+        "name": "Can add bookmark",
+        "content_type": 10,
+        "codename": "add_bookmark"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 38,
+    "fields": {
+        "name": "Can change bookmark",
+        "content_type": 10,
+        "codename": "change_bookmark"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 39,
+    "fields": {
+        "name": "Can delete bookmark",
+        "content_type": 10,
+        "codename": "delete_bookmark"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 40,
+    "fields": {
+        "name": "Can view bookmark",
+        "content_type": 10,
+        "codename": "view_bookmark"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 41,
+    "fields": {
+        "name": "Can add pinned application",
+        "content_type": 11,
+        "codename": "add_pinnedapplication"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 42,
+    "fields": {
+        "name": "Can change pinned application",
+        "content_type": 11,
+        "codename": "change_pinnedapplication"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 43,
+    "fields": {
+        "name": "Can delete pinned application",
+        "content_type": 11,
+        "codename": "delete_pinnedapplication"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 44,
+    "fields": {
+        "name": "Can view pinned application",
+        "content_type": 11,
+        "codename": "view_pinnedapplication"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 45,
+    "fields": {
+        "name": "Can add user dashboard module",
+        "content_type": 12,
+        "codename": "add_userdashboardmodule"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 46,
+    "fields": {
+        "name": "Can change user dashboard module",
+        "content_type": 12,
+        "codename": "change_userdashboardmodule"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 47,
+    "fields": {
+        "name": "Can delete user dashboard module",
+        "content_type": 12,
+        "codename": "delete_userdashboardmodule"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 48,
+    "fields": {
+        "name": "Can view user dashboard module",
+        "content_type": 12,
+        "codename": "view_userdashboardmodule"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 49,
+    "fields": {
+        "name": "Can add log entry",
+        "content_type": 13,
+        "codename": "add_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 50,
+    "fields": {
+        "name": "Can change log entry",
+        "content_type": 13,
+        "codename": "change_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 51,
+    "fields": {
+        "name": "Can delete log entry",
+        "content_type": 13,
+        "codename": "delete_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 52,
+    "fields": {
+        "name": "Can view log entry",
+        "content_type": 13,
+        "codename": "view_logentry"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 53,
+    "fields": {
+        "name": "Can add permission",
+        "content_type": 14,
+        "codename": "add_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 54,
+    "fields": {
+        "name": "Can change permission",
+        "content_type": 14,
+        "codename": "change_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 55,
+    "fields": {
+        "name": "Can delete permission",
+        "content_type": 14,
+        "codename": "delete_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 56,
+    "fields": {
+        "name": "Can view permission",
+        "content_type": 14,
+        "codename": "view_permission"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 57,
+    "fields": {
+        "name": "Can add group",
+        "content_type": 15,
+        "codename": "add_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 58,
+    "fields": {
+        "name": "Can change group",
+        "content_type": 15,
+        "codename": "change_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 59,
+    "fields": {
+        "name": "Can delete group",
+        "content_type": 15,
+        "codename": "delete_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 60,
+    "fields": {
+        "name": "Can view group",
+        "content_type": 15,
+        "codename": "view_group"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 61,
+    "fields": {
+        "name": "Can add user",
+        "content_type": 16,
+        "codename": "add_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 62,
+    "fields": {
+        "name": "Can change user",
+        "content_type": 16,
+        "codename": "change_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 63,
+    "fields": {
+        "name": "Can delete user",
+        "content_type": 16,
+        "codename": "delete_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 64,
+    "fields": {
+        "name": "Can view user",
+        "content_type": 16,
+        "codename": "view_user"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 65,
+    "fields": {
+        "name": "Can add site",
+        "content_type": 17,
+        "codename": "add_site"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 66,
+    "fields": {
+        "name": "Can change site",
+        "content_type": 17,
+        "codename": "change_site"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 67,
+    "fields": {
+        "name": "Can delete site",
+        "content_type": 17,
+        "codename": "delete_site"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 68,
+    "fields": {
+        "name": "Can view site",
+        "content_type": 17,
+        "codename": "view_site"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 69,
+    "fields": {
+        "name": "Can add content type",
+        "content_type": 18,
+        "codename": "add_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 70,
+    "fields": {
+        "name": "Can change content type",
+        "content_type": 18,
+        "codename": "change_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 71,
+    "fields": {
+        "name": "Can delete content type",
+        "content_type": 18,
+        "codename": "delete_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 72,
+    "fields": {
+        "name": "Can view content type",
+        "content_type": 18,
+        "codename": "view_contenttype"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 73,
+    "fields": {
+        "name": "Can add session",
+        "content_type": 19,
+        "codename": "add_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 74,
+    "fields": {
+        "name": "Can change session",
+        "content_type": 19,
+        "codename": "change_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 75,
+    "fields": {
+        "name": "Can delete session",
+        "content_type": 19,
+        "codename": "delete_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 76,
+    "fields": {
+        "name": "Can view session",
+        "content_type": 19,
+        "codename": "view_session"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 77,
+    "fields": {
+        "name": "Can add email address",
+        "content_type": 20,
+        "codename": "add_emailaddress"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 78,
+    "fields": {
+        "name": "Can change email address",
+        "content_type": 20,
+        "codename": "change_emailaddress"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 79,
+    "fields": {
+        "name": "Can delete email address",
+        "content_type": 20,
+        "codename": "delete_emailaddress"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 80,
+    "fields": {
+        "name": "Can view email address",
+        "content_type": 20,
+        "codename": "view_emailaddress"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 81,
+    "fields": {
+        "name": "Can add email confirmation",
+        "content_type": 21,
+        "codename": "add_emailconfirmation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 82,
+    "fields": {
+        "name": "Can change email confirmation",
+        "content_type": 21,
+        "codename": "change_emailconfirmation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 83,
+    "fields": {
+        "name": "Can delete email confirmation",
+        "content_type": 21,
+        "codename": "delete_emailconfirmation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 84,
+    "fields": {
+        "name": "Can view email confirmation",
+        "content_type": 21,
+        "codename": "view_emailconfirmation"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 85,
+    "fields": {
+        "name": "Can add social account",
+        "content_type": 22,
+        "codename": "add_socialaccount"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 86,
+    "fields": {
+        "name": "Can change social account",
+        "content_type": 22,
+        "codename": "change_socialaccount"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 87,
+    "fields": {
+        "name": "Can delete social account",
+        "content_type": 22,
+        "codename": "delete_socialaccount"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 88,
+    "fields": {
+        "name": "Can view social account",
+        "content_type": 22,
+        "codename": "view_socialaccount"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 89,
+    "fields": {
+        "name": "Can add social application",
+        "content_type": 23,
+        "codename": "add_socialapp"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 90,
+    "fields": {
+        "name": "Can change social application",
+        "content_type": 23,
+        "codename": "change_socialapp"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 91,
+    "fields": {
+        "name": "Can delete social application",
+        "content_type": 23,
+        "codename": "delete_socialapp"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 92,
+    "fields": {
+        "name": "Can view social application",
+        "content_type": 23,
+        "codename": "view_socialapp"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 93,
+    "fields": {
+        "name": "Can add social application token",
+        "content_type": 24,
+        "codename": "add_socialtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 94,
+    "fields": {
+        "name": "Can change social application token",
+        "content_type": 24,
+        "codename": "change_socialtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 95,
+    "fields": {
+        "name": "Can delete social application token",
+        "content_type": 24,
+        "codename": "delete_socialtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 96,
+    "fields": {
+        "name": "Can view social application token",
+        "content_type": 24,
+        "codename": "view_socialtoken"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$HikUENz1ISDO$cs+7LfjJUqFOQH78WbJs79ua/Th1ZI6fCNGFSu5urxM=",
+        "last_login": "2019-07-02T10:44:01.820Z",
+        "is_superuser": true,
+        "username": "carl",
+        "first_name": "",
+        "last_name": "",
+        "email": "carl.dath@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-07-02T10:27:50.564Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$HikUENz1ISDO$cs+7LfjJUqFOQH78WbJs79ua/Th1ZI6fCNGFSu5urxM=",
+        "last_login": "2019-04-02T10:44:01.820Z",
+        "is_superuser": true,
+        "username": "Svensee",
+        "first_name": "Sven",
+        "last_name": "Svensson",
+        "email": "svennesvenneson@gmail.com",
+        "is_staff": false,
+        "is_active": false,
+        "date_joined": "2019-02-02T10:27:50.564Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$HikUENz1ISDO$cs+7LfjJUqFOQH78WbJs79ua/Th1ZI6fCNGFSu5urxM=",
+        "last_login": "2019-05-02T10:44:01.820Z",
+        "is_superuser": true,
+        "username": "Lassebasse",
+        "first_name": "Lars",
+        "last_name": "Larsson",
+        "email": "Lassebassekingkong@gmail.com",
+        "is_staff": false,
+        "is_active": false,
+        "date_joined": "2019-01-02T10:27:50.564Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$HikUENz1ISDO$cs+7LfjJUqFOQH78WbJs79ua/Th1ZI6fCNGFSu5urxM=",
+        "last_login": "2019-07-02T10:12:01.820Z",
+        "is_superuser": true,
+        "username": "IngvaQueen",
+        "first_name": "Ingva",
+        "last_name": "Ingvedotter",
+        "email": "IngensommarutanIngva@gmail.com",
+        "is_staff": false,
+        "is_active": false,
+        "date_joined": "2019-07-01T10:27:50.564Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$AQ2Z1X2OEohl$xXKfXvqQTArki874seNteEmCv+bEMz9lhCQbOeCfzT0=",
+        "last_login": "2019-07-12T12:54:42.497Z",
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "",
+        "last_name": "",
+        "email": "admin@admin.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-07-05T13:13:13.005Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$44gmqhg6g1tu$sPhHYxwbCAs8pgAFCDOXcQuwyzOHylxJaFXfjfySjnQ=",
+        "last_login": "2019-07-12T13:13:46.718Z",
+        "is_superuser": false,
+        "username": "maxhxie",
+        "first_name": "",
+        "last_name": "",
+        "email": "maxhxie@gmail.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-07-05T13:15:37.826Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 7,
+    "fields": {
+        "password": "pbkdf2_sha256$150000$SFsv0MLtzoa1$uh11rgTXowUzpuD3RNtyHUc9KIc7V0s88v7WR7czH/I=",
+        "last_login": "2019-07-06T17:11:05.466Z",
+        "is_superuser": false,
+        "username": "maxxie",
+        "first_name": "",
+        "last_name": "",
+        "email": "maxxie@kth.se",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-07-06T16:56:27.145Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "account.emailaddress",
+    "pk": 1,
+    "fields": {
+        "user": 6,
+        "email": "maxhxie@gmail.com",
+        "verified": true,
+        "primary": true
+    }
+},
+{
+    "model": "account.emailaddress",
+    "pk": 2,
+    "fields": {
+        "user": 1,
+        "email": "carl.dath@gmail.com",
+        "verified": false,
+        "primary": false
+    }
+},
+{
+    "model": "account.emailaddress",
+    "pk": 3,
+    "fields": {
+        "user": 7,
+        "email": "maxxie@kth.se",
+        "verified": true,
+        "primary": true
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2019-07-05T13:14:23.806Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "3",
+        "object_repr": "SchlagerKvall med Sven by Sven Svensson",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2019-07-05T13:38:21.788Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "2",
+        "object_repr": "LasseEvent1 by Lars Larsson",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"is_confirmed\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2019-07-05T13:38:25.926Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "IngvasEvent by Ingva Ingvadotter",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"is_active\", \"is_confirmed\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2019-07-05T13:38:30.399Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "3",
+        "object_repr": "SchlagerKvall med Sven by Sven Svensson",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"is_confirmed\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2019-07-05T13:42:48.328Z",
+        "user": 5,
+        "content_type": 1,
+        "object_id": "3",
+        "object_repr": "Sven Svensson",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"valid_profile\", \"is_active\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2019-07-05T13:42:52.596Z",
+        "user": 5,
+        "content_type": 1,
+        "object_id": "2",
+        "object_repr": "Lars Larsson",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"valid_profile\", \"is_active\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2019-07-05T13:42:56.803Z",
+        "user": 5,
+        "content_type": 1,
+        "object_id": "1",
+        "object_repr": "Ingva Ingvadotter",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"valid_profile\", \"is_active\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2019-07-05T13:44:38.852Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "3",
+        "object_repr": "SchlagerKvall med Sven by Sven Svensson",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"red\", \"green\", \"blue\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2019-07-05T13:44:45.172Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "2",
+        "object_repr": "LasseEvent1 by Lars Larsson",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"red\", \"green\", \"blue\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2019-07-05T13:44:55.360Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "IngvasEvent by Ingva Ingvadotter",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"red\", \"green\", \"blue\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2019-07-05T13:45:12.557Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "IngvasEvent by Ingva Ingvadotter",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"red\", \"blue\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2019-07-05T13:47:46.254Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "2",
+        "object_repr": "LasseEvent1 by Lars Larsson",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"is_hidden\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2019-07-05T13:47:52.744Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "3",
+        "object_repr": "SchlagerKvall med Sven by Sven Svensson",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2019-07-05T13:47:56.647Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "2",
+        "object_repr": "LasseEvent1 by Lars Larsson",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"is_hidden\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2019-07-06T17:24:15.298Z",
+        "user": 5,
+        "content_type": 1,
+        "object_id": "4",
+        "object_repr": "Max Xie",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"is_active\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2019-07-08T10:24:55.934Z",
+        "user": 5,
+        "content_type": 1,
+        "object_id": "4",
+        "object_repr": "Max Xie",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"genres\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2019-07-08T10:51:05.544Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "5",
+        "object_repr": "Max f\u00f6delsedagskalas by Maxxx Xie",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"is_confirmed\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2019-07-08T10:51:22.851Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "5",
+        "object_repr": "Max f\u00f6delsedagskalas by Maxxx Xie",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"red\", \"green\", \"blue\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2019-07-08T10:51:34.083Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "4",
+        "object_repr": "Max f\u00f6delsedagskalas by Maxxx Xie",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2019-07-08T10:53:10.327Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "5",
+        "object_repr": "Max f\u00f6delsedagskalas by Maxxx Xie",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"green\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2019-07-08T10:53:26.580Z",
+        "user": 5,
+        "content_type": 7,
+        "object_id": "5",
+        "object_repr": "Max f\u00f6delsedagskalas by Maxxx Xie",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"red\", \"green\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2019-07-08T10:56:51.913Z",
+        "user": 5,
+        "content_type": 9,
+        "object_id": "5",
+        "object_repr": "Lasse Basse signed up to Max f\u00f6delsedagskalas",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 23,
+    "fields": {
+        "action_time": "2019-07-08T10:58:02.773Z",
+        "user": 5,
+        "content_type": 9,
+        "object_id": "6",
+        "object_repr": "Svenne Svensson signed up to Max f\u00f6delsedagskalas",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 24,
+    "fields": {
+        "action_time": "2019-07-08T12:06:41.988Z",
+        "user": 5,
+        "content_type": 1,
+        "object_id": "4",
+        "object_repr": "Maxxx Xie",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"genres\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 25,
+    "fields": {
+        "action_time": "2019-07-12T12:52:57.798Z",
+        "user": 5,
+        "content_type": 1,
+        "object_id": "4",
+        "object_repr": "Maxxx Xie",
+        "action_flag": 2,
+        "change_message": "[]"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 1,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:12:38.064Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 2,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:12:38.208Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 3,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:12:39.142Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 4,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:12:57.725Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 5,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:13:34.137Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 6,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:13:36.486Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 7,
+    "fields": {
+        "user": 6,
+        "search_text": "dansband",
+        "datetime": "2019-07-08T11:13:41.767Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 8,
+    "fields": {
+        "user": 6,
+        "search_text": "schlager",
+        "datetime": "2019-07-08T11:13:46.225Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 9,
+    "fields": {
+        "user": 6,
+        "search_text": "pop",
+        "datetime": "2019-07-08T11:13:51.151Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 10,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:13:53.349Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 11,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:26:55.840Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 12,
+    "fields": {
+        "user": 6,
+        "search_text": "pop",
+        "datetime": "2019-07-08T11:27:06.217Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 13,
+    "fields": {
+        "user": 6,
+        "search_text": "schlager",
+        "datetime": "2019-07-08T11:27:10.629Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 14,
+    "fields": {
+        "user": 6,
+        "search_text": "max",
+        "datetime": "2019-07-08T11:27:13.871Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 15,
+    "fields": {
+        "user": 6,
+        "search_text": "lass",
+        "datetime": "2019-07-08T11:27:16.071Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 16,
+    "fields": {
+        "user": 6,
+        "search_text": "event",
+        "datetime": "2019-07-08T11:27:17.873Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 17,
+    "fields": {
+        "user": 6,
+        "search_text": "somethoinh",
+        "datetime": "2019-07-08T11:27:20.342Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 18,
+    "fields": {
+        "user": 6,
+        "search_text": "something",
+        "datetime": "2019-07-08T11:27:22.033Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 19,
+    "fields": {
+        "user": 6,
+        "search_text": "stablw",
+        "datetime": "2019-07-08T11:27:24.484Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 20,
+    "fields": {
+        "user": 6,
+        "search_text": "stable",
+        "datetime": "2019-07-08T11:27:25.711Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 21,
+    "fields": {
+        "user": 6,
+        "search_text": "I am not quite sure about this thing right here",
+        "datetime": "2019-07-08T11:27:33.765Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 22,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:54:39.121Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 23,
+    "fields": {
+        "user": 6,
+        "search_text": "pop",
+        "datetime": "2019-07-08T11:54:40.663Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 24,
+    "fields": {
+        "user": 6,
+        "search_text": "schlager",
+        "datetime": "2019-07-08T11:54:43.303Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 25,
+    "fields": {
+        "user": 6,
+        "search_text": "pop",
+        "datetime": "2019-07-08T11:54:45.505Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 26,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:55:09.750Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 27,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:56:37.076Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 28,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:56:38.449Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 29,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:56:39.796Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 30,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:56:44.371Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 31,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:56:56.937Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 32,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:57:25.798Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 33,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:57:28.588Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 34,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T11:59:19.399Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 35,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:01:37.119Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 36,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:04:31.383Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 37,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:05:11.639Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 38,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:05:48.226Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 39,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:05:49.049Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 40,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:06:47.202Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 41,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:06:47.988Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 42,
+    "fields": {
+        "user": 6,
+        "search_text": "pop",
+        "datetime": "2019-07-08T12:09:00.435Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 43,
+    "fields": {
+        "user": 6,
+        "search_text": "pop",
+        "datetime": "2019-07-08T12:09:35.092Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 44,
+    "fields": {
+        "user": 6,
+        "search_text": "pop",
+        "datetime": "2019-07-08T12:09:35.808Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 45,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:14:38.597Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 46,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:39:37.909Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 47,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:39:44.486Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 48,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:41:19.220Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 49,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:41:35.750Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 50,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:41:40.836Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 51,
+    "fields": {
+        "user": 6,
+        "search_text": "dansband",
+        "datetime": "2019-07-08T12:45:57.317Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 52,
+    "fields": {
+        "user": 6,
+        "search_text": "dansband",
+        "datetime": "2019-07-08T12:46:03.003Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 53,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:46:07.141Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 54,
+    "fields": {
+        "user": 6,
+        "search_text": "rocka",
+        "datetime": "2019-07-08T12:46:08.790Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 55,
+    "fields": {
+        "user": 6,
+        "search_text": "max",
+        "datetime": "2019-07-08T12:46:11.767Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 56,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:46:13.068Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 57,
+    "fields": {
+        "user": 6,
+        "search_text": "max",
+        "datetime": "2019-07-08T12:46:16.270Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 58,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T12:46:20.692Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 59,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T13:11:17.612Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 60,
+    "fields": {
+        "user": 6,
+        "search_text": "pop",
+        "datetime": "2019-07-08T13:19:22.681Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 61,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T13:19:24.983Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 62,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T13:21:28.675Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 63,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T13:22:18.351Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 64,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T13:23:50.206Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 65,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T13:24:07.464Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 66,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T13:26:01.489Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 67,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T13:26:07.179Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 68,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T13:26:17.448Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 69,
+    "fields": {
+        "user": 6,
+        "search_text": "schlager",
+        "datetime": "2019-07-08T13:26:40.397Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 70,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-08T13:26:47.313Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 71,
+    "fields": {
+        "user": 5,
+        "search_text": "rock",
+        "datetime": "2019-07-12T12:44:42.239Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 72,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-12T12:46:45.976Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 73,
+    "fields": {
+        "user": 6,
+        "search_text": "max",
+        "datetime": "2019-07-12T12:46:48.402Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 74,
+    "fields": {
+        "user": 6,
+        "search_text": "dansband",
+        "datetime": "2019-07-12T12:46:52.844Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 75,
+    "fields": {
+        "user": 6,
+        "search_text": "dansband",
+        "datetime": "2019-07-12T12:46:59.639Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 76,
+    "fields": {
+        "user": 6,
+        "search_text": "schlager",
+        "datetime": "2019-07-12T12:48:42.538Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 77,
+    "fields": {
+        "user": 6,
+        "search_text": "schlager",
+        "datetime": "2019-07-12T12:48:52.697Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 78,
+    "fields": {
+        "user": 6,
+        "search_text": "schlager",
+        "datetime": "2019-07-12T12:49:07.072Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 79,
+    "fields": {
+        "user": 6,
+        "search_text": "schlager",
+        "datetime": "2019-07-12T12:49:18.263Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 80,
+    "fields": {
+        "user": 6,
+        "search_text": "rock",
+        "datetime": "2019-07-12T12:49:25.008Z"
+    }
+},
+{
+    "model": "events.search",
+    "pk": 81,
+    "fields": {
+        "user": 5,
+        "search_text": "pop",
+        "datetime": "2019-07-12T13:13:32.378Z"
+    }
+},
+{
+    "model": "events.signup",
+    "pk": 1,
+    "fields": {
+        "event": 2,
+        "user": 7,
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "telephone": "",
+        "is_success": false,
+        "is_removed": false
+    }
+},
+{
+    "model": "events.signup",
+    "pk": 2,
+    "fields": {
+        "event": 1,
+        "user": 7,
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "telephone": "",
+        "is_success": false,
+        "is_removed": false
+    }
+},
+{
+    "model": "events.signup",
+    "pk": 3,
+    "fields": {
+        "event": 3,
+        "user": 7,
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "telephone": "",
+        "is_success": false,
+        "is_removed": false
+    }
+},
+{
+    "model": "events.signup",
+    "pk": 4,
+    "fields": {
+        "event": 2,
+        "user": 6,
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "telephone": "",
+        "is_success": false,
+        "is_removed": false
+    }
+},
+{
+    "model": "events.signup",
+    "pk": 5,
+    "fields": {
+        "event": 5,
+        "user": 3,
+        "first_name": "Lasse",
+        "last_name": "Basse",
+        "email": "labba@kth.se",
+        "telephone": "0761678737",
+        "is_success": true,
+        "is_removed": false
+    }
+},
+{
+    "model": "events.signup",
+    "pk": 6,
+    "fields": {
+        "event": 5,
+        "user": 2,
+        "first_name": "Svenne",
+        "last_name": "Svensson",
+        "email": "sven@gmail.com",
+        "telephone": "0732738427",
+        "is_success": true,
+        "is_removed": false
+    }
+},
+{
+    "model": "events.signup",
+    "pk": 7,
+    "fields": {
+        "event": 1,
+        "user": 6,
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "telephone": "",
+        "is_success": false,
+        "is_removed": false
+    }
+},
+{
+    "model": "users.follow",
+    "pk": 50,
+    "fields": {
+        "artist": 2,
+        "follower": 6,
+        "datetime": "2019-07-12T12:47:18.723Z"
+    }
+},
+{
+    "model": "users.follow",
+    "pk": 51,
+    "fields": {
+        "artist": 1,
+        "follower": 6,
+        "datetime": "2019-07-12T12:49:39.676Z"
+    }
+},
+{
+    "model": "users.fan",
+    "pk": 1,
+    "fields": {
+        "user": 7,
+        "first_name": "Max",
+        "last_name": "Xie",
+        "email": "",
+        "telephone": "0761678737",
+        "gender": "N",
+        "profile_picture": "profile_picture/fullsizeoutput_1_TyIY7Hy.jpeg",
+        "valid_profile": true,
+        "is_active": true,
+        "accepted_terms": true
+    }
+},
+{
+    "model": "users.artist",
+    "pk": 1,
+    "fields": {
+        "user": 4,
+        "name": "ArtistIngva",
+        "first_name": "Ingva",
+        "last_name": "Ingvadotter",
+        "genres": 1,
+        "email": "aaa@asdg.se",
+        "telephone": "303503450",
+        "city": "Stockholm",
+        "city_district": "Vasastan",
+        "description": "Hejsvejs jag heter ingva lorem ipsum",
+        "gender": "F",
+        "profile_picture": "profile_picture/ingvaingvdotter.jpeg",
+        "valid_profile": true,
+        "is_active": true,
+        "accepted_terms": false
+    }
+},
+{
+    "model": "users.artist",
+    "pk": 2,
+    "fields": {
+        "user": 3,
+        "name": "LarsArtistKingen",
+        "first_name": "Lars",
+        "last_name": "Larsson",
+        "genres": 3,
+        "email": "lasse@example.se",
+        "telephone": "12341354",
+        "city": "Stockholm",
+        "city_district": "Norrmalm",
+        "description": "Hej lassebasse med sin nya singel det aer jag. Lorem upsum unt so veiter",
+        "gender": "M",
+        "profile_picture": "profile_picture/Larsson.jpeg",
+        "valid_profile": true,
+        "is_active": true,
+        "accepted_terms": false
+    }
+},
+{
+    "model": "users.artist",
+    "pk": 3,
+    "fields": {
+        "user": 2,
+        "name": "GitarSvenne",
+        "first_name": "Sven",
+        "last_name": "Svensson",
+        "genres": 2,
+        "email": "svennssssosooooon@example.se",
+        "telephone": "1923412354",
+        "city": "Stockholm",
+        "city_district": "S\u00f6dermalm",
+        "description": "Gitarspelaren svenneboiii det e jag. Jag bor pa soder och roker mycket braj.",
+        "gender": "M",
+        "profile_picture": "profile_picture/Svensson.jpeg",
+        "valid_profile": true,
+        "is_active": true,
+        "accepted_terms": false
+    }
+},
+{
+    "model": "users.artist",
+    "pk": 4,
+    "fields": {
+        "user": 6,
+        "name": "",
+        "first_name": "Maxxx",
+        "last_name": "Xie",
+        "genres": 4,
+        "email": "",
+        "telephone": "",
+        "city": "Stockholm",
+        "city_district": "Sollentuna",
+        "description": "Hej jag heter Max, \u00b4whataspp dansband",
+        "gender": "N",
+        "profile_picture": "profile_picture/fullsizeoutput_1_klTnqdC.jpeg",
+        "valid_profile": true,
+        "is_active": true,
+        "accepted_terms": false
+    }
+}
+]
