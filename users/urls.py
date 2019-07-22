@@ -14,6 +14,7 @@ urlpatterns = [
     path('boost/', views.boost, name="boost"),
     path('follow/', views.follow, name="follow"),
     path('unfollow/', views.unfollow, name="unfollow"),
+    path('data/', views.data, name="data"),
     path('terms_of_use/', views.terms_of_use, name="terms_of_use"),
     path('integrity/', views.integrity, name="integrity"),
 ]

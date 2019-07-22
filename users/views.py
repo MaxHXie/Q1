@@ -312,3 +312,6 @@ def terms_of_use(request):
 
 def integrity(request):
     pass
+
+def data(request):
+    return render(request, 'data_page.html')
