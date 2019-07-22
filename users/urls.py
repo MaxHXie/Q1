@@ -12,6 +12,7 @@ urlpatterns = [
     path('settings/', views.settings, name="settings"),
     path('logout/', views.logout, name="logout"),
     path('boost/', views.boost, name="boost"),
+    path('unboost/',views.unboost,name="unboost"),
     path('follow/', views.follow, name="follow"),
     path('unfollow/', views.unfollow, name="unfollow"),
     path('terms_of_use/', views.terms_of_use, name="terms_of_use"),

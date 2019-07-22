@@ -6,7 +6,7 @@ import q1.functions as functions
 from django.contrib import messages
 from events.views import index
 from django.contrib.auth.models import User
-from .models import Artist, Fan, Genre, Follow
+from .models import Artist, Fan, Genre, Follow, Boost
 from events.models import Event
 
 # Create your views here.
@@ -141,6 +141,15 @@ def profile_id(request, id):
         except Follow.DoesNotExist:
             following = False
 
+        try:
+            boost = Boost.objects.get(user=this_user, artist=profile)
+            if boost.is_active == True:
+                boosting = True
+            else:
+                boosting = False
+        except Boost.DoesNotExist:
+            boosting = False
+
     elif functions.is_fan(request):
         profile = Fan.objects.get(user=user)
     else:
@@ -148,6 +157,7 @@ def profile_id(request, id):
         return render(request, 'profile_page.html')
 
     followers = len(Follow.objects.filter(artist=profile))
+    boosters = len(Boost.objects.filter(artist=profile))
 
     if profile.is_active == False:
         message = 'This profile is no longer active'
@@ -158,7 +168,7 @@ def profile_id(request, id):
     else:
         genre = []
 
-    return render(request, 'profile_page.html', context={'genre': genre, 'profile':profile, 'this_user':this_user, 'following': following, 'followers': followers})
+    return render(request, 'profile_page.html', context={'genre': genre, 'profile':profile, 'this_user':this_user, 'following': following, 'followers': followers, 'boosting':boosting, 'boosters':boosters})
 
 
 def edit_profile(request):
@@ -212,7 +222,95 @@ def boost(request):
     '''
     Lets a user boost an artist
     '''
-    pass
+    user = functions.get_authenticated_user(request)
+    if user != None:
+        if request.method == "POST":
+            user_id = request.POST.get('user_id')
+        else:
+            messages.error(request, 'Something went wrong.')
+            return my_profile(request)
+        try:
+            target_user = User.objects.get(pk=user_id)
+            profile_type = functions.profile_type(target_user)
+            if profile_type != 'artist':
+                messages.error(request, 'You can only boost other artists')
+                return profile_id(request, user_id)
+        
+        except User.DoesNotExist:
+            messages.error(request, 'This profile does not exist anymore')
+            return profile_id(request, user_id)
+
+        if profile_type == '':
+            messages.error(request, 'You do not have the authority to boost artists')
+            return profile_id(request, user_id)
+
+        else:
+            if user == target_user:
+                messages.error(request, 'You cannot boost yourself')
+                return profile_id(request, user_id)
+            else:
+                artist_obj = Artist.objects.get(pk=target_user.id)
+                boost_obj = Boost.objects.get(artist=target_user.artist, user=user,genre=artist_obj.genres)
+                if boost_obj == None:
+                    Boost.objects.create(artist=target_user.artist, user=user,genre=artist_obj.genres)
+                else:
+                    boost_obj.is_active = True
+                    boost_obj.save()
+                messages.success(request, 'You are now bosting %s.' % (target_user.artist.name))
+                return profile_id(request, user_id)
+    else:
+        messages.error(request, 'You are not logged in')
+        return redirect('account_login')
+
+def unboost(request):
+    '''
+    Unboosting artist
+    '''
+    user = functions.get_authenticated_user(request)
+    if user != None:
+        if request.method == "POST":
+            user_id = request.POST.get('user_id')
+        else:
+            messages.error(request, 'Something went wrong.')
+            return my_profile(request)
+        try:
+            target_user = User.objects.get(pk=user_id)
+            profile_type = functions.profile_type(target_user)
+            if profile_type != 'artist':
+                messages.error(request, 'You can only stop boosting other artists')
+                return profile_id(request, user_id)
+        
+        except User.DoesNotExist:
+            messages.error(request, 'This profile does not exist anymore')
+            return profile_id(request, user_id)
+
+        if profile_type == '':
+            messages.error(request, 'You do not have the authority to boost artists')
+            return profile_id(request, user_id)
+
+        else:
+            if user == target_user:
+                messages.error(request, 'You cannot boost yourself')
+                return profile_id(request, user_id)
+            else:
+                try:
+                    target_artist = Artist.objects.get(user=target_user)
+                    boost_obj = Boost.objects.get(artist=target_artist, user=user)
+                    boost_obj.is_active = False
+                    boost_obj.save()
+                    messages.success(request, 'You have now unbosted %s.' % (target_user.artist.name))
+                    if boost_obj == None:
+                        raise Exception
+                except Exception as msg:
+                    messages.error(request,msg)
+                    #messages.error(request,'You cannot unboost someone you are not boosting!')
+
+                
+                return profile_id(request, user_id)
+    else:
+        messages.error(request, 'You are not logged in')
+        return redirect('account_login')
+
 
 def follow(request):
     '''

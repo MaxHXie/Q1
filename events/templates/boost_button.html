@@ -1,0 +1,22 @@
+{% block content%}
+<div class="container">
+{% if boosting == False %}
+<form action="{% url 'boost' %}" method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="user_id" value="{{ profile.user.id }}">
+  <div class="button-container">
+  <input type="submit" class="btn btn-primary btn-round btn-lg" style="background-color:#32CD32;" value="Boost">
+  </div>
+</form>
+
+{% else %}
+<form action="{% url 'unboost' %}" method="POST">
+  {% csrf_token %}
+  <input type="hidden" name="user_id" value="{{ profile.user.id }}">
+  <div class="button-container">
+    <input type="submit" class="btn btn-primary btn-round btn-lg" style="background-color:#32CD32;" value="Stop Boosting">
+  </div>
+</form>
+{% endif %}
+</div>
+{% endblock %}
