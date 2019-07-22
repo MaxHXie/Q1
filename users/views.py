@@ -249,13 +249,17 @@ def boost(request):
                 messages.error(request, 'You cannot boost yourself')
                 return profile_id(request, user_id)
             else:
-                artist_obj = Artist.objects.get(pk=target_user.id)
-                boost_obj = Boost.objects.get(artist=target_user.artist, user=user,genre=artist_obj.genres)
-                if boost_obj == None:
+                artist_obj = Artist.objects.get(user=target_user.id)
+                try:
+                    boost_obj = Boost.objects.get(artist=target_user.artist, user=user,genre=artist_obj.genres)
+                    if boost_obj == None:
+                        Boost.objects.create(artist=target_user.artist, user=user,genre=artist_obj.genres)
+                    else:
+                        boost_obj.is_active = True
+                        boost_obj.save()
+                except:
                     Boost.objects.create(artist=target_user.artist, user=user,genre=artist_obj.genres)
-                else:
-                    boost_obj.is_active = True
-                    boost_obj.save()
+                    
                 messages.success(request, 'You are now bosting %s.' % (target_user.artist.name))
                 return profile_id(request, user_id)
     else:
