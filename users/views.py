@@ -314,4 +314,20 @@ def integrity(request):
     pass
 
 def data(request):
-    return render(request, 'data_page.html')
+    # Get followers
+    # Get number of events
+    if functions.is_artist(request):
+        user = request.user
+        artist = user.artist
+        number_of_followers = len(Follow.objects.all().filter(artist=artist))
+        number_of_events = len(Event.objects.filter(artist=artist))
+
+        return render(request, 'data_page.html', { 'number_of_followers': number_of_followers, 'number_of_events': number_of_events})
+
+    else:
+        message = "You are not logged in as an artist"
+        # Return somewhere
+        return index(request)
+
+    # Get visits
+    # Get boosts
