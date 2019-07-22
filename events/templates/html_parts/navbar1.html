@@ -4,7 +4,7 @@
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" href="{% url 'index' %}" rel="tooltip" data-placement="bottom">
-                <span style="font-size:1.5em;"><strong>Q1</strong></span>
+                <span style="font-size:1.5em;"><strong>Skid Av.</strong></span>
             </a>
             <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-bar bar1"></span>
@@ -17,28 +17,28 @@
                 {% if user.is_authenticated %}
                     {% if user.artist %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'my_profile' %}"><span style="font-size:1.3em;"><strong>My profile</strong></span></a>
+                            <a class="nav-link" href="{% url 'my_profile' %}"><span style="font-size:1.3em;"><strong>Min profil</strong></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'my_events' %}"><span style="font-size:1.3em;"><strong>My events</strong></span></a>
+                            <a class="nav-link" href="{% url 'my_events' %}"><span style="font-size:1.3em;"><strong>Mina event</strong></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'all_events' %}"><span style="font-size:1.3em;"><strong>All events</strong></span></a>
+                            <a class="nav-link" href="{% url 'all_events' %}"><span style="font-size:1.3em;"><strong>Alla event</strong></span></a>
                         </li>
                     {% elif user.fan %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'all_events' %}"><span style="font-size:1.3em;"><strong>All events</strong></span></a>
+                            <a class="nav-link" href="{% url 'all_events' %}"><span style="font-size:1.3em;"><strong>Alla event</strong></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'my_profile' %}"><span style="font-size:1.3em;"><strong>My profile</strong></span></a>
+                            <a class="nav-link" href="{% url 'my_profile' %}"><span style="font-size:1.3em;"><strong>Min profil</strong></span></a>
                         </li>
                     {% endif %}
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'all_events' %}"><span style="font-size:1.3em;"><strong>All events</strong></span></a>
+                        <a class="nav-link" href="{% url 'all_events' %}"><span style="font-size:1.3em;"><strong>Alla event</strong></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}"><span style="font-size:1.3em;"><strong>Log in</strong></span></a>
+                        <a class="nav-link" href="{% url 'account_login' %}"><span style="font-size:1.3em;"><strong>Logga in</strong></span></a>
                     </li>
                 {% endif %}
                 <!--
