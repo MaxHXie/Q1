@@ -77,6 +77,8 @@
                 {% if this_user == profile.user %}
                     <div class="button-container">
                         <a href="{% url 'edit_profile' %}" class="btn btn-primary btn-round btn-lg">Edit profile</a>
+                        <a href="{% url 'data' %}" class="btn btn-primary btn-round btn-lg">Statistics</a>
+
                     </div>
                 {% endif %}
                 {% if profile.description %}
